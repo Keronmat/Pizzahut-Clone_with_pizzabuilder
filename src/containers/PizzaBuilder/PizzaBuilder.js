@@ -1,21 +1,22 @@
 import React, { Component } from "react";
 import Pizza from "../../components/Pizza.js/Pizza";
+import BuildControls from "../../components/Pizza.js/BuildControls/BuildControls";
 
 export default class PizzaBuilder extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      ingredients: [
-        "pepperoni",
-        "sausage",
-        "ham",
-        "mushrooms",
-        "peppers",
-        "onions",
-        "pineapple",
-        "jalapenos"
-      ]
+      ingredients: {
+        pepperoni: false,
+        sausage: false,
+        ham: false,
+        mushrooms: false,
+        peppers: false,
+        onions: false,
+        pineapple: false,
+        jalapenos: false
+      }
     };
   }
 
@@ -23,7 +24,7 @@ export default class PizzaBuilder extends Component {
     return (
       <React.Fragment>
         <Pizza ingredients={this.state.ingredients} />
-        <div>Pizza Controls</div>
+        <BuildControls />
       </React.Fragment>
     );
   }

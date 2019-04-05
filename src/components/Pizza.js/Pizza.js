@@ -3,10 +3,16 @@ import classes from "./Pizza.module.css";
 import PizzaIngredient from "./PizzaIngredient/PizzaIngredient";
 
 const Pizza = props => {
-  let listIngredients = props.ingredients.map((ig, i) => {
-    return <PizzaIngredient key={ig + i} toppingType={ig} />;
+  let listIngredients = [];
+  Object.keys(props.ingredients).forEach((ig, i) => {
+    if (props.ingredients[ig]) {
+      listIngredients.push(<PizzaIngredient key={ig + i} toppingType={ig} />);
+    }
   });
 
+  if (listIngredients.length === 0) {
+    listIngredients = <p>Please start adding ingredients</p>;
+  }
   return (
     <div className={classes.Container}>
       <div className={classes.Pizza}>{listIngredients}</div>
@@ -14,3 +20,4 @@ const Pizza = props => {
   );
 };
 export default Pizza;
+// <PizzaIngredient key={ig + i} toppingType={ig} />;

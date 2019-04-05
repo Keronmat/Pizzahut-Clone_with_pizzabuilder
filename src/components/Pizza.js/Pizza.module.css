@@ -1,6 +1,6 @@
 .Container {
   width: 100%;
-  margin: auto;
+  margin-top: 16px;
   height: 350px;
   overflow: scroll;
   text-align: center;
@@ -8,8 +8,8 @@
   font-size: 1.2rem;
 }
 .Pizza {
-  width: 50vmin;
-  height: 50vmin;
+  width: 40vmin;
+  height: 40vmin;
   margin: auto;
   border: 5vmin solid #c0c0c0;
   border-radius: 50%;
@@ -49,14 +49,14 @@
 
 .Pizza:before {
   content: "";
-  width: 105%;
-  height: 105%;
+  width: 115%;
+  height: 115%;
   border-radius: 50%;
   display: block;
   background: transparent;
   position: absolute;
-  top: -2.5%;
-  left: -2.5%;
+  top: -7.5%;
+  left: -7.5%;
   -moz-box-shadow: -3px -3px 9px rgba(255, 255, 255, 0.8);
   -webkit-box-shadow: -3px -3px 9px rgba(255, 255, 255, 0.8);
   box-shadow: -3px -3px 9px rgba(255, 255, 255, 0.8);
