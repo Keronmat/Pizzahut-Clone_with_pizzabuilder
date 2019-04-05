@@ -1,0 +1,76 @@
+.Container {
+  width: 100%;
+  margin: auto;
+  height: 350px;
+  overflow: scroll;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.Pizza {
+  width: 50vmin;
+  height: 50vmin;
+  margin: auto;
+  border: 5vmin solid #c0c0c0;
+  border-radius: 50%;
+  box-shadow: inset 40px 40px 90px rgba(0, 0, 0, 0.2),
+    40px 40px 60px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(
+      transparent 49.85%,
+      rgba(0, 0, 0, 0.08) 49.85%,
+      rgba(0, 0, 0, 0.04) 50.15%,
+      transparent 50.15%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 49.85%,
+      rgba(0, 0, 0, 0.04) 49.85%,
+      rgba(0, 0, 0, 0.04) 50.15%,
+      transparent 50.15%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 49.85%,
+      rgba(0, 0, 0, 0.04) 49.85%,
+      rgba(0, 0, 0, 0.1) 50.15%,
+      transparent 50.15%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 49.85%,
+      rgba(0, 0, 0, 0.1) 49.85%,
+      rgba(0, 0, 0, 0.04) 50.15%,
+      transparent 50.15%
+    ),
+    radial-gradient(circle, #fcfc8f, #fdfd81 59.5%, #c79d81 60%, #d7c3a1 70%);
+}
+
+.Pizza:before {
+  content: "";
+  width: 105%;
+  height: 105%;
+  border-radius: 50%;
+  display: block;
+  background: transparent;
+  position: absolute;
+  top: -2.5%;
+  left: -2.5%;
+  -moz-box-shadow: -3px -3px 9px rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: -3px -3px 9px rgba(255, 255, 255, 0.8);
+  box-shadow: -3px -3px 9px rgba(255, 255, 255, 0.8);
+}
+
+@media (min-width: 500px) and(min-height:700px) {
+  .Container {
+    width: 450px;
+    height: 400px;
+  }
+}
+@media (min-width: 500px) and(min-height:400px) {
+  .Container {
+    width: 350px;
+    height: 300px;
+  }
+}
