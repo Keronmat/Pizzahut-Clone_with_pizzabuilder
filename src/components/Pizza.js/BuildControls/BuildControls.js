@@ -5,7 +5,9 @@ import BuildControl from "./BuildControl/BuildControl";
 const meatControls = [
   { label: "Pepperoni", type: "pepperoni" },
   { label: "Sausage", type: "sausage" },
-  { label: "Ham", type: "ham" }
+  { label: "Ham", type: "ham" },
+  { label: "Bacon", type: "bacon" },
+  { label: "Chicken", type: "chicken" }
 ];
 const vegeControls = [
   { label: "Mushrooms", type: "mushrooms" },
@@ -17,14 +19,31 @@ const vegeControls = [
 const BuildControls = props => {
   return (
     <div className={classes.BuildControls}>
-      <div className={classes.Column}>
+      <p>
+        Current Price: <strong>${props.price.toFixed(2)}</strong>
+      </p>
+      <div>
         {meatControls.map(ctrl => (
-          <BuildControl key={ctrl.label} label={ctrl.label} />
+          <BuildControl
+            key={ctrl.label}
+            label={ctrl.label}
+            added={() => props.ingredientAdded(ctrl.type)}
+            removed={() => props.ingredientRemoved(ctrl.type)}
+            ingredients={props.ingredients}
+            type={ctrl.type}
+          />
         ))}
       </div>
-      <div className={classes.Column}>
+      <div>
         {vegeControls.map(ctrl => (
-          <BuildControl key={ctrl.label} label={ctrl.label} />
+          <BuildControl
+            key={ctrl.label}
+            label={ctrl.label}
+            added={() => props.ingredientAdded(ctrl.type)}
+            removed={() => props.ingredientRemoved(ctrl.type)}
+            ingredients={props.ingredients}
+            type={ctrl.type}
+          />
         ))}
       </div>
     </div>

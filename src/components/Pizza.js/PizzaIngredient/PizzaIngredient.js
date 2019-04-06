@@ -16,6 +16,12 @@ class PizzaIngredient extends Component {
       case "ham":
         ingredient = <PizzaTopping topping={"ham"} toppingAmount={12} />;
         break;
+      case "bacon":
+        ingredient = <PizzaTopping topping={"bacon"} toppingAmount={12} />;
+        break;
+      case "chicken":
+        ingredient = <PizzaTopping topping={"chicken"} toppingAmount={12} />;
+        break;
       case "mushrooms":
         ingredient = <PizzaTopping topping={"mushrooms"} toppingAmount={12} />;
         break;

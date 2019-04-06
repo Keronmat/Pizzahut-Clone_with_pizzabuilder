@@ -229,7 +229,177 @@
   left: 38%;
   transform: translate(-50%, -50%) rotate(80deg);
 }
+/* Chicken */
 
+.chicken {
+  width: 5%;
+  height: 14%;
+  border-radius: 20% 40% 100% 50%;
+  background-image: radial-gradient(#dac0af 40%, #a1795e);
+  z-index: 3;
+  position: absolute;
+}
+
+.chicken-1 {
+  top: 25%;
+  left: 58%;
+  transform: translate(-50%, -50%) rotate(20deg);
+}
+
+.chicken-2 {
+  top: 32%;
+  left: 75%;
+  transform: translate(-50%, -50%) rotate(-110deg);
+}
+
+.chicken-3 {
+  top: 70%;
+  left: 80%;
+  transform: translate(-50%, -50%) rotate(40deg);
+}
+
+.chicken-4 {
+  top: 68%;
+  left: 55%;
+  transform: translate(-50%, -50%) rotate(50deg);
+}
+
+.chicken-5 {
+  top: 80%;
+  left: 35%;
+  transform: translate(-50%, -50%) rotate(-60deg);
+}
+
+.chicken-6 {
+  top: 35%;
+  left: 22%;
+  transform: translate(-50%, -50%) rotate(60deg);
+}
+
+.chicken-7 {
+  top: 52%;
+  left: 80%;
+  transform: translate(-50%, -50%) rotate(5deg);
+}
+
+.chicken-8 {
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%) rotate(40deg);
+}
+
+.chicken-9 {
+  top: 65%;
+  left: 30%;
+  transform: translate(-50%, -50%) rotate(-110deg);
+}
+
+.chicken-10 {
+  top: 22%;
+  left: 40%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+
+.chicken-11 {
+  top: 40%;
+  left: 45%;
+  transform: translate(-50%, -50%) rotate(-100deg);
+}
+
+.chicken-12 {
+  top: 82%;
+  left: 60%;
+  transform: translate(-50%, -50%) rotate(80deg);
+}
+/* Bacon */
+
+.bacon {
+  width: 6%;
+  height: 13%;
+  border-radius: 15%;
+  position: absolute;
+  background-image: linear-gradient(
+    90deg,
+    #753434 0%,
+    #b14f4f 30%,
+    #ecc67f 35%,
+    #d1ad69 65%,
+    #b14f4f 70%,
+    #753434
+  );
+}
+
+.bacon-1 {
+  top: 38%;
+  left: 40%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.bacon-2 {
+  top: 30%;
+  left: 65%;
+  transform: translate(-50%, -50%) rotate(50deg);
+}
+
+.bacon-3 {
+  top: 42%;
+  left: 78%;
+  transform: translate(-50%, -50%) rotate(120deg);
+}
+
+.bacon-4 {
+  top: 65%;
+  left: 55%;
+  transform: translate(-50%, -50%) rotate(-120deg);
+}
+
+.bacon-5 {
+  top: 75%;
+  left: 75%;
+  transform: translate(-50%, -50%) rotate(50deg);
+}
+
+.bacon-6 {
+  top: 60%;
+  left: 38%;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.bacon-7 {
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.bacon-8 {
+  top: 25%;
+  left: 25%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.bacon-9 {
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(100deg);
+}
+
+.bacon-10 {
+  top: 82%;
+  left: 45%;
+  transform: translate(-50%, -50%) rotate(100deg);
+}
+
+.bacon-11 {
+  top: 58%;
+  left: 75%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.bacon-12 {
+  top: 72%;
+  left: 25%;
+  transform: translate(-50%, -50%) rotate(150deg);
+}
 /* Mushroom */
 
 .mushrooms {

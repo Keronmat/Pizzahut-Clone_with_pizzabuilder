@@ -3,15 +3,13 @@
   background-color: #cf8f2e;
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   box-shadow: 0 2px 1px #ccc;
   margin: 0 auto;
   padding: 10px 0;
 }
-.Column {
-  flex: 50%;
-}
+
 .OrderButton {
   background-color: #dad735;
   outline: none;
@@ -57,5 +55,6 @@
   .BuildControls {
     flex-flow: row;
     align-items: flex-start;
+    justify-content: space-around;
   }
 }
