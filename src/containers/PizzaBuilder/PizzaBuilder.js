@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Pizza from "../../components/Pizza.js/Pizza";
 import BuildControls from "../../components/Pizza.js/BuildControls/BuildControls";
+import Modal from "../../components/UI/Modal/Modal";
+import OrderSummary from "../../components/Pizza.js/OrderSumarry/OrderSummary";
 
 const INGREDIENT_PRICES = {
   pepperoni: 2,
@@ -71,12 +73,16 @@ export default class PizzaBuilder extends Component {
   render() {
     return (
       <React.Fragment>
+        <Modal>
+          <OrderSummary ingredients={this.state.ingredients} />
+        </Modal>
         <Pizza ingredients={this.state.ingredients} />
         <BuildControls
           ingredientAdded={this.addIngredientHandler}
           ingredientRemoved={this.RemoveIngredientHandler}
           ingredients={this.state.ingredients}
           price={this.state.totalPrice}
+          purchasable={this.state.purchasable}
         />
       </React.Fragment>
     );

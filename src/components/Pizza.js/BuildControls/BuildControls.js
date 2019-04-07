@@ -16,12 +16,22 @@ const vegeControls = [
   { label: "Pineapple", type: "pineapple" },
   { label: "Jalapenos", type: "jalapenos" }
 ];
+
 const BuildControls = props => {
   return (
     <div className={classes.BuildControls}>
-      <p>
-        Current Price: <strong>${props.price.toFixed(2)}</strong>
-      </p>
+      <div>
+        <p>
+          Current Price: <strong>${props.price.toFixed(2)}</strong>
+        </p>
+        <button
+          className={classes.OrderButton}
+          disabled={props.price <= 5 ? true : false}
+        >
+          ORDER NOW
+        </button>
+      </div>
+
       <div>
         {meatControls.map(ctrl => (
           <BuildControl

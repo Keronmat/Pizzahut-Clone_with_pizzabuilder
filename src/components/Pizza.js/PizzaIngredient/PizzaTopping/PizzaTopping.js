@@ -12,7 +12,7 @@ const PizzaTopping = ({ topping, toppingAmount }) => {
       />
     );
   }
-  console.log(toppingIngredient);
+
   return toppingIngredient;
 };
 
