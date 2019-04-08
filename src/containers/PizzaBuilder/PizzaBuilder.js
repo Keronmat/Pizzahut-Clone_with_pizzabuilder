@@ -34,7 +34,9 @@ export default class PizzaBuilder extends Component {
         pineapple: false,
         jalapenos: false
       },
-      totalPrice: 5
+      size: "regularPan",
+      currentPrice: 0,
+      purchasing: false
     };
   }
 
@@ -45,44 +47,67 @@ export default class PizzaBuilder extends Component {
     updatedIngrdients[type] = true;
 
     const priceAddition = INGREDIENT_PRICES[type];
-    const oldPrice = this.state.totalPrice;
+    const oldPrice = this.state.currentPrice;
     const newPrice = oldPrice + priceAddition;
 
     this.setState({
-      totalPrice: newPrice,
+      currentPrice: newPrice,
       ingredients: updatedIngrdients
     });
   };
 
   RemoveIngredientHandler = type => {
+    const { ingredients, currentPrice } = this.state;
     const updatedIngrdients = {
-      ...this.state.ingredients
+      ...ingredients
     };
     updatedIngrdients[type] = false;
 
     const priceDeduction = INGREDIENT_PRICES[type];
-    const oldPrice = this.state.totalPrice;
+    const oldPrice = currentPrice;
     const newPrice = oldPrice - priceDeduction;
 
     this.setState({
-      totalPrice: newPrice,
+      currentPrice: newPrice,
       ingredients: updatedIngrdients
     });
+  };
+
+  handleSize = event => {
+    this.setState(
+      {
+        size: event.target.value
+      },
+      function() {
+        console.log(this.state.size, this.state.sizePrice);
+      }
+    );
+  };
+
+  purchaseHandler = () => {
+    this.setState({ purchasing: true });
   };
 
   render() {
     return (
       <React.Fragment>
-        <Modal>
-          <OrderSummary ingredients={this.state.ingredients} />
+        <Modal show={this.state.purchasing}>
+          <OrderSummary
+            ingredients={this.state.ingredients}
+            currentPrice={this.state.currentPrice}
+            ingredientRemoved={this.RemoveIngredientHandler}
+          />
         </Modal>
         <Pizza ingredients={this.state.ingredients} />
         <BuildControls
           ingredientAdded={this.addIngredientHandler}
           ingredientRemoved={this.RemoveIngredientHandler}
           ingredients={this.state.ingredients}
-          price={this.state.totalPrice}
-          purchasable={this.state.purchasable}
+          currentPrice={this.state.currentPrice}
+          purchaseHandler={this.purchaseHandler}
+          ordered={this.purchaseHandler}
+          handleSize={this.handleSize}
+          size={this.state.size}
         />
       </React.Fragment>
     );

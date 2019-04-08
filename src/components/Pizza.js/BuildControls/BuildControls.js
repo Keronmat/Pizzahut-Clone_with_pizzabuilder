@@ -20,16 +20,28 @@ const vegeControls = [
 const BuildControls = props => {
   return (
     <div className={classes.BuildControls}>
-      <div>
+      <div className={classes.Column1}>
         <p>
-          Current Price: <strong>${props.price.toFixed(2)}</strong>
+          Current Price: <strong>${props.currentPrice.toFixed(2)}</strong>
         </p>
-        <button
-          className={classes.OrderButton}
-          disabled={props.price <= 5 ? true : false}
-        >
-          ORDER NOW
-        </button>
+        <div>
+          <select
+            readOnly
+            name="Pan Size"
+            value={props.size}
+            onChange={e => props.handleSize(e)}
+            className={classes.Size}
+          >
+            <option value="regularPan">Regular Pan</option>
+            <option value="largePan">Large Pan</option>
+            <option value="xlPan">XL Pan</option>
+          </select>
+        </div>
+        <div>
+          <button className={classes.OrderButton} onClick={props.ordered}>
+            ORDER NOW
+          </button>
+        </div>
       </div>
 
       <div>

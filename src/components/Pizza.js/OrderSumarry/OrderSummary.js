@@ -1,4 +1,7 @@
 import React from "react";
+import { Button, Table } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const INGREDIENT_PRICES = {
   pepperoni: 2,
@@ -17,22 +20,55 @@ function OrderSummary(props) {
   const ingredientSummary = Object.keys(props.ingredients).map(ig => {
     if (props.ingredients[ig] === true) {
       return (
-        <li key={ig}>
-          <span style={{ textTransform: "capitalize" }}>{ig}</span>: $
-          {INGREDIENT_PRICES[ig]}
-        </li>
+        <tr key={ig} style={{ color: "white", cursor: "pointer" }}>
+          <td>{ig}</td>
+          <td>${INGREDIENT_PRICES[ig]}</td>
+          <td>
+            <FontAwesomeIcon
+              icon={faTimes}
+              onClick={() => props.ingredientRemoved(ig)}
+              style={{ color: "red", cursor: "pointer" }}
+            />
+          </td>
+        </tr>
       );
     }
   });
+
   return (
     <React.Fragment>
       <h3>Your Order</h3>
-      <p>A delicious Pizza with the following ingredients:</p>
-      <ul>
-        <li>Pizza with no topping: $5.00</li>
-        {ingredientSummary}
-      </ul>
-      <p>Continue to Checkout?</p>
+      <Table responsive>
+        <thead className="thead-dark">
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Price</th>
+            <th scope="col">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ingredientSummary}
+          <tr>
+            <td
+              colSpan="3"
+              style={{ textAlign: "right", color: "yellow", fontWeight: 500 }}
+            >
+              Sub-Total
+              <span style={{ margin: "10px" }}>${props.currentPrice}</span>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan="2">
+              <Button variant="danger">Checkout</Button>
+            </td>
+            <td>
+              <Button variant="danger">Continue</Button>
+            </td>
+          </tr>
+        </tfoot>
+      </Table>
     </React.Fragment>
   );
 }
