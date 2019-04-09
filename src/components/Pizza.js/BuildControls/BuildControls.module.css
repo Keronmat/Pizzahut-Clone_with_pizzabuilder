@@ -1,6 +1,6 @@
 .BuildControls {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.08);
+  width: 99%;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
   border-radius: 30px;
   border-top: 5px solid #c8102e;
   box-shadow: 0px 14px 17px -6px #c8102e;
@@ -38,15 +38,33 @@
   background-color: #c7c6c6;
   cursor: not-allowed;
   border: 1px solid #ccc;
-  color: #888888;
+  color: #c8102e;
+  box-shadow: 2px 2px 2px #c8102e;
 }
 
 .OrderButton:not(:disabled) {
   animation: enable 0.3s linear;
 }
 
-.Size {
-  width: auto;
+.Dropdown {
+  border: none;
+  outline: none;
+  font-size: inherit;
+  color: #2e2c31;
+  width: 105%;
+  margin: 20px auto;
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* remove default arrow */
+  background-image: url("../../../assets/images/angle-down-solid.svg");
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 0.7rem;
+  background-size: 0.6rem; /* add custom arrow */
 }
 
 .Column1 {
@@ -82,5 +100,8 @@
     align-items: flex-start;
     padding: 5px;
     margin: 15px 0;
+  }
+  .Dropdown {
+    width: 130%;
   }
 }

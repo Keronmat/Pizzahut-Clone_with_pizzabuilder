@@ -1,0 +1,28 @@
+.Logo {
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+}
+.Logo .mobileLogo {
+  position: absolute;
+  height: 52px;
+  top: -25px;
+  left: -25px;
+}
+
+.Logo .largeLogo {
+  display: none;
+}
+
+@media (min-width: 762px) {
+  .Logo .mobileLogo {
+    display: none;
+  }
+  .Logo .largeLogo {
+    display: block;
+    position: absolute;
+    top: -35px;
+    right: 150px;
+  }
+}

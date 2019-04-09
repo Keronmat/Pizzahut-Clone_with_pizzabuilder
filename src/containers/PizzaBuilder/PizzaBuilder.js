@@ -35,6 +35,7 @@ export default class PizzaBuilder extends Component {
         jalapenos: false
       },
       size: "regularPan",
+      panSizePrice: 5,
       currentPrice: 0,
       purchasing: false
     };
@@ -74,28 +75,48 @@ export default class PizzaBuilder extends Component {
   };
 
   handleSize = event => {
-    this.setState(
-      {
-        size: event.target.value
-      },
-      function() {
-        console.log(this.state.size, this.state.sizePrice);
-      }
-    );
+    this.setState({ size: event.target.value }, function() {
+      console.log(this.state.size, this.state.panSizePrice);
+    });
+  };
+
+  handlePanSizePrice = () => {
+    const defaultPrice =
+      this.state.size === "regularPan"
+        ? 5
+        : this.state.size === "largePan"
+        ? 8
+        : this.state.size === "xlPan"
+        ? 10
+        : null;
+    this.setState({ panSizePrice: defaultPrice });
   };
 
   purchaseHandler = () => {
     this.setState({ purchasing: true });
   };
 
+  purchaseCancelHandler = () => {
+    this.setState({ purchasing: false });
+  };
+
+  purchaseCheckoutHandler = () => {
+    alert("checkout");
+  };
   render() {
     return (
       <React.Fragment>
-        <Modal show={this.state.purchasing}>
+        <Modal
+          show={this.state.purchasing}
+          modalClosed={this.purchaseCancelHandler}
+        >
           <OrderSummary
             ingredients={this.state.ingredients}
             currentPrice={this.state.currentPrice}
             ingredientRemoved={this.RemoveIngredientHandler}
+            purchaseCheckout={this.purchaseCheckoutHandler}
+            purchaseCancelled={this.purchaseCancelHandler}
+            panSizePrice={this.state.panSizePrice}
           />
         </Modal>
         <Pizza ingredients={this.state.ingredients} />
@@ -108,6 +129,7 @@ export default class PizzaBuilder extends Component {
           ordered={this.purchaseHandler}
           handleSize={this.handleSize}
           size={this.state.size}
+          handlePanSizePrice={this.handlePanSizePrice}
         />
       </React.Fragment>
     );

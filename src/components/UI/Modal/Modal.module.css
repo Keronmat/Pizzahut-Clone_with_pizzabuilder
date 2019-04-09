@@ -5,10 +5,10 @@
   color: white;
   width: 70%;
   border: none;
-  box-shadow: 1px 1px 1px #c8102e;
+  box-shadow: 0px 1px 3px 1px #c8102e;
   padding: 16px;
-  left: 15%;
-  top: 30%;
+  left: 15vmin;
+  top: 10vmin;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }

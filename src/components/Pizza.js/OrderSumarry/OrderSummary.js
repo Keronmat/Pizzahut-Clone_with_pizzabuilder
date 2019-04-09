@@ -33,6 +33,7 @@ function OrderSummary(props) {
         </tr>
       );
     }
+    return ingredientSummary;
   });
 
   return (
@@ -48,23 +49,36 @@ function OrderSummary(props) {
         </thead>
         <tbody>
           {ingredientSummary}
+          <tr style={{ color: "white" }}>
+            <td>Pan Size</td>
+            <td colSpan="2">${props.panSizePrice}</td>
+          </tr>
           <tr>
             <td
               colSpan="3"
-              style={{ textAlign: "right", color: "yellow", fontWeight: 500 }}
+              style={{ textAlign: "right", color: "#dad735", fontWeight: 500 }}
             >
               Sub-Total
-              <span style={{ margin: "10px" }}>${props.currentPrice}</span>
+              <span style={{ margin: "10px" }}>
+                ${props.currentPrice + props.panSizePrice}
+              </span>
             </td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <td colSpan="2">
-              <Button variant="danger">Checkout</Button>
+              <Button variant="danger" onClick={() => props.purchaseCheckout()}>
+                Checkout
+              </Button>
             </td>
-            <td>
-              <Button variant="danger">Continue</Button>
+            <td colSpan="2">
+              <Button
+                variant="danger"
+                onClick={() => props.purchaseCancelled()}
+              >
+                Continue
+              </Button>
             </td>
           </tr>
         </tfoot>

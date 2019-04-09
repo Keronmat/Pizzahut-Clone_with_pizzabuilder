@@ -15,11 +15,12 @@
   cursor: pointer;
   background-color: transparent;
   outline: none;
+  color: #fff;
 }
 
 .BuildControl button:disabled {
   background-color: transparent;
-  color: #ccc;
+  color: #a10110;
   cursor: default;
 }
 
@@ -46,13 +47,12 @@
   background-color: transparent;
   color: white;
 }
-
+/*
 .BuildControl .Remove:hover,
 .BuildControl .Remove:active {
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .BuildControl .Add:hover,
 .BuildControl .Add:active {
-  background-color: rgba(0, 0, 0, 0.5);
 }
+*/

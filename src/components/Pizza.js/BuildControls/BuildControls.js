@@ -22,15 +22,18 @@ const BuildControls = props => {
     <div className={classes.BuildControls}>
       <div className={classes.Column1}>
         <p>
-          Current Price: <strong>${props.currentPrice.toFixed(2)}</strong>
+          Current Price:{" "}
+          <strong style={{ color: props.currentPrice > 1 ? "#dad735" : null }}>
+            ${props.currentPrice.toFixed(2)}
+          </strong>
         </p>
-        <div>
+        <div className={classes.DropdownDiv}>
           <select
             readOnly
             name="Pan Size"
             value={props.size}
             onChange={e => props.handleSize(e)}
-            className={classes.Size}
+            className={classes.Dropdown}
           >
             <option value="regularPan">Regular Pan</option>
             <option value="largePan">Large Pan</option>
@@ -38,7 +41,14 @@ const BuildControls = props => {
           </select>
         </div>
         <div>
-          <button className={classes.OrderButton} onClick={props.ordered}>
+          <button
+            className={classes.OrderButton}
+            onClick={() => {
+              props.ordered();
+              props.handlePanSizePrice();
+            }}
+            disabled={props.currentPrice > 2 ? false : true}
+          >
             ORDER NOW
           </button>
         </div>
