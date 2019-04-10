@@ -5,7 +5,7 @@ import PizzaLogoLg from "../../assets/images/pizzahut_logo_lg.png";
 
 export default function Logo() {
   return (
-    <div className={classes.Logo}>
+    <a href="/" className={[classes.Logo, "navbar-brand"].join(" ")}>
       <img
         className={classes.mobileLogo}
         src={PizzaLogoMobile}
@@ -16,6 +16,6 @@ export default function Logo() {
         src={PizzaLogoLg}
         alt="Pizzahut Logo"
       />
-    </div>
+    </a>
   );
 }

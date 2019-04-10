@@ -4,10 +4,10 @@ import cartLogo from "../../../assets/images/shopping-cart.svg";
 
 function Cart(props) {
   return (
-    <div className={classes.Cart}>
-      <img src={cartLogo} />
-      <p>&#91;1&#93;</p>
-    </div>
+    <a href="/" className={classes.Cart}>
+      <img src={cartLogo} alt="shopping_cart" />
+      &#40;{0}&#41;
+    </a>
   );
 }
 

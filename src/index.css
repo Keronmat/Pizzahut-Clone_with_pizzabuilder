@@ -1,9 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Poppins", "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: UnitedSans, tahoma "Poppins", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
@@ -15,7 +15,9 @@ body {
   background-color: #2e2c31;
   position: static;
   margin: 0 auto;
-  font-weight: bold;
+  font-size: 14px !important;
+  font-weight: 400;
+  color: #fff !important;
 }
 
 code {
@@ -23,9 +25,9 @@ code {
     monospace;
 }
 
-@media (min-width: 762px) {
-  .appContainer {
-    width: 93vw;
+@media (min-width: 768px) {
+  .container-fixed {
+    width: 95%;
     margin: 0 auto;
   }
 }

@@ -1,4 +1,6 @@
-.NavigationItem {
+.Deals {
+  background: #fed75f;
+  color: #000 !important;
   display: none;
   text-transform: uppercase;
   position: relative;
@@ -6,38 +8,37 @@
 }
 
 @media (min-width: 768px) {
-  .NavigationItem {
-    margin-bottom: 15px;
+  .Deals {
+    margin: 0;
     box-sizing: border-box;
     padding: 0;
     display: block;
     width: 130px;
-    height: 51px;
     line-height: 18px;
     border-right: 1px solid #666;
     border-top: 1px solid #666;
     color: #fff !important;
     font-size: 22px;
+    width: 130px;
+    height: 51px;
     text-align: center;
   }
-  .NavigationItem a {
-    color: #fff;
+  .Deals a {
+    color: #000;
     text-decoration: none;
     position: relative;
     display: block;
     padding: 16px;
-  }
-  .NavigationItem a:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
   }
 }
 @media (min-width: 481px) {
-  .NavigationItem {
+  .Deals {
     font-size: 17px;
   }
 }
 @media (min-width: 320px) {
-  .NavigationItem {
+  .Deals {
     font-size: 16px !important;
   }
 }

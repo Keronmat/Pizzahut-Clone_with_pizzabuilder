@@ -3,6 +3,7 @@
   text-align: center;
   position: relative;
   box-sizing: border-box;
+  clear: both;
 }
 .Logo .mobileLogo {
   position: absolute;
@@ -15,14 +16,24 @@
   display: none;
 }
 
-@media (min-width: 762px) {
+.Toolbar .navbar-brand {
+  font-size: 18px;
+  line-height: 20px;
+  padding: 10px !important;
+}
+.Toolbar a,
+a:hover {
+  text-decoration: none !important;
+  background-color: transparent;
+}
+
+@media (min-width: 768px) {
   .Logo .mobileLogo {
     display: none;
   }
   .Logo .largeLogo {
     display: block;
-    position: absolute;
-    top: -35px;
-    right: 150px;
+    margin: 10px 0 15px 10px;
+    position: relative;
   }
 }

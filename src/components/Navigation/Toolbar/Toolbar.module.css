@@ -1,28 +1,43 @@
-.Toolbar {
+/*.Toolbar {
   height: 63px;
   width: 100%;
   position: fixed;
   background-color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   box-sizing: border-box;
   border-bottom: 1px solid #ed1c24;
   z-index: 90;
-}
+}*/
 
-.Toobar nav {
-  height: 100%;
-}
-
-@media (min-width: 762px) {
+@media (min-width: 768px) {
   .Toolbar {
-    height: 85px;
-    width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+    height: 102px !important;
+    margin: 0 auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
     box-sizing: border-box;
     z-index: 90;
     position: relative;
-    border: none;
+  }
+
+  .Toolbar nav {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    float: left;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+  }
+  .Toolbar .navbar {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+}
+/*position: absolute;
+    top: 86px;
+    left: 0;*/
+@media (min-width: 320px) {
+  .Toolbar .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
