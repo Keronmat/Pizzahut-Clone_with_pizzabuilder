@@ -18,6 +18,9 @@
 .Cart a {
   text-decoration: none !important;
 }
+.Cart a:hover {
+  background-color: none;
+}
 .Cart img {
   height: 21px;
 }

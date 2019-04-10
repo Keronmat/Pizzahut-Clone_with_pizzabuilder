@@ -27,7 +27,7 @@ function OrderSummary(props) {
             <FontAwesomeIcon
               icon={faTimes}
               onClick={() => props.ingredientRemoved(ig)}
-              style={{ color: "red", cursor: "pointer" }}
+              style={{ color: "#ED1C24", cursor: "pointer" }}
             />
           </td>
         </tr>
@@ -56,7 +56,7 @@ function OrderSummary(props) {
           <tr>
             <td
               colSpan="3"
-              style={{ textAlign: "right", color: "#dad735", fontWeight: 500 }}
+              style={{ textAlign: "right", color: "#ffd700", fontWeight: 500 }}
             >
               Sub-Total
               <span style={{ margin: "10px" }}>
@@ -68,13 +68,24 @@ function OrderSummary(props) {
         <tfoot>
           <tr>
             <td colSpan="2">
-              <Button variant="danger" onClick={() => props.purchaseCheckout()}>
+              <Button
+                style={{
+                  backgroundColor: "#ED1C24",
+                  outline: "none",
+                  border: "none"
+                }}
+                onClick={() => props.purchaseCheckout()}
+              >
                 Checkout
               </Button>
             </td>
             <td colSpan="2">
               <Button
-                variant="danger"
+                style={{
+                  backgroundColor: "#ED1C24",
+                  outline: "none",
+                  border: "none"
+                }}
                 onClick={() => props.purchaseCancelled()}
               >
                 Continue

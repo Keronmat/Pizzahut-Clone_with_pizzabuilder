@@ -16,6 +16,8 @@
     box-sizing: border-box;
     z-index: 90;
     position: relative;
+    font-weight: 600;
+    color: #fff;
   }
 
   .Toolbar nav {

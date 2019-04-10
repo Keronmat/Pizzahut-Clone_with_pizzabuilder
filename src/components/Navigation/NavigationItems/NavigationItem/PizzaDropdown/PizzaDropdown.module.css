@@ -1,0 +1,35 @@
+.PizzaDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+}
+
+.PizzaDropdown li {
+  list-style-type: none;
+  line-height: 18px;
+  font-size: 14px;
+}
+.PizzaDropdown a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #fff;
+  white-space: nowrap;
+  border-right: 1px solid #666 !important;
+  border-top: 1px solid #666 !important;
+}
+.PizzaDropdown a:hover,
+.PizzaDropdown li:hover {
+  display: block;
+}
