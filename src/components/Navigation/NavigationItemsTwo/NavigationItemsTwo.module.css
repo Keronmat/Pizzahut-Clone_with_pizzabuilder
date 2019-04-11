@@ -10,3 +10,8 @@
     float: right !important;
   }
 }
+@media (max-width: 1230px) {
+  .NavigationItemsTwo {
+    margin-left: 170px;
+  }
+}

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import classes from "./NavigationItems.module.css";
-import NavigationItem from "./NavigationItem/NavigationItem";
+import NavigationItem, {
+  NavigationItemDropdown
+} from "./NavigationItem/NavigationItem";
 import DealsButton from "./NavigationItem/DealsButton/DealsButton";
 import PizzaDropdown from "./NavigationItem/PizzaDropdown/PizzaDropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,25 +17,27 @@ export default class NavigationItems extends Component {
     };
   }
   handleOpen = () => {
-    this.setState({ isOpen: true });
+    /*this.setState(prevState => ({
+      pizzaDropdownOpen: !prevState.pizzaDropdownOpen
+    }));*/
+    this.setState({ pizzaDropdownOpen: true });
     console.log(this.state);
   };
 
   handleClose = () => {
-    this.setState({ isOpen: false });
+    this.setState({ pizzaDropdownOpen: false });
   };
   render() {
     return (
       <ul className={[classes.NavigationItems, "nav navbar-nav"].join(" ")}>
-        <NavigationItem link="#">
+        <NavigationItemDropdown
+          handleOpen={this.handleOpen}
+          handleClose={this.handleClose}
+        >
           Pizza
           <FontAwesomeIcon icon={faSortDown} style={{ marginLeft: "5px" }} />
-          <PizzaDropdown
-            onMouseEnter={this.handleOpen}
-            onMouseLeave={this.handleClose}
-            open={this.state.pizzaDropdownOpen}
-          />
-        </NavigationItem>
+          <PizzaDropdown open={this.state.pizzaDropdownOpen} />
+        </NavigationItemDropdown>
 
         <NavigationItem link="/">Starters</NavigationItem>
         <NavigationItem link="/">More</NavigationItem>

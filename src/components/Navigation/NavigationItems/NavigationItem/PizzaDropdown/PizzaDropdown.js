@@ -3,7 +3,12 @@ import classes from "./PizzaDropdown.module.css";
 
 export default function PizzaDropdown(props) {
   return (
-    <ul className={classes.PizzaDropdown}>
+    <ul
+      className={classes.PizzaDropdown}
+      style={{
+        display: props.open ? "block" : "none"
+      }}
+    >
       <li>
         <a href="/">Pizza Builder</a>
       </li>

@@ -1,23 +1,49 @@
-/*.Toolbar {
+.Toolbar {
   height: 63px;
   width: 100%;
-  position: fixed;
   background-color: #000;
   box-sizing: border-box;
   border-bottom: 1px solid #ed1c24;
   z-index: 90;
-}*/
+  padding: 10px;
+  text-align: center;
+}
+.CartDiv {
+  margin: -80px 0;
+  padding: 0;
+  max-width: auto;
+  float: right;
+}
+header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: fixed;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
 
 @media (min-width: 768px) {
   .Toolbar {
     height: 102px !important;
     margin: 0 auto;
+    padding: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
     box-sizing: border-box;
     z-index: 90;
     position: relative;
     font-weight: 600;
     color: #fff;
+    border-bottom: none;
+    text-align: left;
+  }
+  .CartDiv {
+    margin: 0;
+    max-width: auto;
+    float: right;
   }
 
   .Toolbar nav {
