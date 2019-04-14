@@ -16,12 +16,11 @@ export default function Logo() {
 }
 export function LogoMobile() {
   return (
-    <a href="/" className={[classes.Logo, "navbar-brand hidden-xs"].join(" ")}>
+    <a href="/" className={[classes.Logo, "navbar-brand"].join(" ")}>
       <img
         className={[classes.mobileLogo, "img img-responsive"].join(" ")}
         src={PizzaLogoMobile}
         alt="Pizzahut Logo"
-        style={{ maxWidth: "60px", marginTop: "-10px", padding: "2px" }}
       />
     </a>
   );

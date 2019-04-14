@@ -7,8 +7,13 @@ import NavigationItemsTwo from "../NavigationItemsTwo/NavigationItemsTwo";
 
 export default function Toolbar(props) {
   return (
-    <header className={[classes.Toolbar, "row", "header"].join(" ")}>
-      <div className="col-md-6 col-sm-4 col-xs-4">
+    <header className={[classes.Toolbar, "row header"].join(" ")}>
+      <div className={[classes.Menu, "col-md-4 col-sm-4 col-xs-4"].join(" ")}>
+        MENU
+      </div>
+      <div
+        className={[classes.LogoDiv, "col-md-6 col-sm-4 col-xs-4"].join(" ")}
+      >
         <Logo />
         <LogoMobile />
       </div>
