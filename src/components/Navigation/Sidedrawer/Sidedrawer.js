@@ -1,42 +1,13 @@
 import React from "react";
 import classes from "./Sidedrawer.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import SideDrawerItem from "./SideDrawerItems/SideDrawerItems";
 
-const Sidedrawer = props => {
+export default function Sidedrawer(props) {
   return (
-    <div className={classes.Sidedrawer}>
-      <nav>
-        <ul className="menu-list active">
-          <li className="toggle accordion-toggle">
-            <button className="menu-link">
-              <span>Menu</span>
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
-          </li>
-          <li className="toggle accordion-toggle">
-            <button className="menu-link">
-              <span> My Account</span>
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
-          </li>
-          <li className="toggle accordion-toggle">
-            <button className="menu-link">
-              <span> Customer Service</span>
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
-          </li>
-        </ul>
-      </nav>
+    <div className={[classes.Sidedrawer, "accordion"].join(" ")}>
+      <SideDrawerItem>Menu</SideDrawerItem>
+      <SideDrawerItem>My Account</SideDrawerItem>
+      <SideDrawerItem>Customer Service</SideDrawerItem>
     </div>
   );
-};
-export default Sidedrawer;
-
-const Submenu = props => {
-  return (
-    <ul className="menu-list accordion active">
-      <li />
-    </ul>
-  );
-};
+}
