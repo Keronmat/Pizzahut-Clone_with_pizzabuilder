@@ -6,13 +6,13 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const SideDrawerItem = props => {
   return (
-    <div className={[classes.SideDrawerItem, "card"].join(" ")}>
-      <div className="card-header">
+    <div className={[classes.SideDrawerItems, "card"].join(" ")}>
+      <div className={[classes.cardHeader, "card-header"].join(" ")}>
         <button>
-          <h5 className="mb-0">
-            {props.children}
+          <span>{props.children}</span>
+          <span className={classes.Icon}>
             <FontAwesomeIcon icon={faPlus} />
-          </h5>
+          </span>
         </button>
       </div>
     </div>

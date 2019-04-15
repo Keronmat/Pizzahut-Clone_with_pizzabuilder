@@ -10,6 +10,7 @@
   transition: all 0.3s ease-out;
   margin: 0;
   padding: 0;
+  overflow: auto;
 }
 
 .Open {
@@ -17,4 +18,9 @@
 }
 .Close {
   transform: translateX(-100%);
+}
+@media (min-width: 768px) {
+  .Sidedrawer {
+    display: none;
+  }
 }

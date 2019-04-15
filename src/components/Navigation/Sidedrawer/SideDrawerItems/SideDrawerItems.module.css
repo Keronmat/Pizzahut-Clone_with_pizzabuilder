@@ -1,3 +1,43 @@
 .SideDrawerItems {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 1) !important;
+  font-family: UnitedSans, tahoma, helvetica, arial, sans-serif !important;
+  padding: 1px;
+  border-bottom: 1px solid #dbdcd2;
+  border-top: 1px solid #dbdcd2;
+}
+
+.SideDrawerItems:first-of-type {
+  border-top: 0;
+}
+.SideDrawerItems:last-of-type {
+  border-bottom: 0;
+}
+.cardHeader {
+  padding: 20px;
+}
+.cardHeader span:first-child {
+  margin: 0 auto;
+}
+button {
+  border: none;
+  outline: none;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 18px;
+  letter-spacing: 1px;
+  font-weight: 400 !important;
+  font-family: UnitedSansSemiCond-Light;
+  padding: 5px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
+}
+.Icon {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  color: #5a5858;
+  font-size: 16px;
 }
