@@ -50,7 +50,7 @@ export default class Sidedrawer extends Component {
     menuObjCopy[index].isOpen = !menuObjCopy[index].isOpen;
 
     this.setState({ menuObj: menuObjCopy }, function() {
-      console.log(this.state.menuObj, menuObjCopy);
+      console.log(this.state.menuObj);
     });
   };
 
@@ -63,6 +63,7 @@ export default class Sidedrawer extends Component {
           id={obj.id}
           header={obj.title}
           toggle={this.handleSubmenu}
+          open={obj.isOpen}
         >
           <SubMenu open={obj.isOpen}>
             {obj.submenu.subTitles.map((sub, index) => (

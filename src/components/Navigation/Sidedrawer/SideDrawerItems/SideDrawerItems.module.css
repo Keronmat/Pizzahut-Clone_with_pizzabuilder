@@ -1,11 +1,11 @@
 .SideDrawerItems {
   background-color: rgba(0, 0, 0, 1) !important;
-  font-family: UnitedSans, tahoma, helvetica, arial, sans-serif !important;
   border-bottom: 1px solid #dbdcd2;
   border-top: 1px solid #dbdcd2;
   transition: all 0.3s ease;
   transform-origin: 50% 50%;
   border-right: none;
+  border-radius: 0;
 }
 
 .SideDrawerItems:first-of-type {
