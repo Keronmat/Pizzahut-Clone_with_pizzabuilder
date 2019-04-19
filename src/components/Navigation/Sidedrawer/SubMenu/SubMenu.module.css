@@ -1,3 +1,39 @@
 .SubMenu {
+  font-size: 20px;
+  position: relative;
+  font-weight: 400;
+  display: none;
+  transition: all 0.3s ease-out;
+  font-family: UnitedSansSemiCond-Light;
+  color: black;
+  display: none;
+  margin-bottom: -1px;
   padding: 0;
+}
+
+.Open {
+  transform: translate(0);
+}
+.Close {
+  transform: translateY(-300%);
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px 0 20px 40px;
+  background-color: white;
+}
+li {
+  text-transform: capitalize;
+}
+.SubMenu ul li a {
+  text-decoration: none;
+  line-height: 25px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  ul {
+    background-color: transparent;
+  }
 }

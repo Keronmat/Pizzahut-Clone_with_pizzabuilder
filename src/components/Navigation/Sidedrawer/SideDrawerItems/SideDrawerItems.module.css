@@ -1,9 +1,11 @@
 .SideDrawerItems {
   background-color: rgba(0, 0, 0, 1) !important;
   font-family: UnitedSans, tahoma, helvetica, arial, sans-serif !important;
-  padding: 1px;
   border-bottom: 1px solid #dbdcd2;
   border-top: 1px solid #dbdcd2;
+  transition: all 0.3s ease;
+  transform-origin: 50% 50%;
+  border-right: none;
 }
 
 .SideDrawerItems:first-of-type {
@@ -34,10 +36,57 @@ button {
   text-align: left;
   background-color: transparent;
 }
-.Icon {
+.IconPlus::before {
+  content: "";
+  display: block;
   position: absolute;
   top: 50%;
   right: 30px;
-  color: #5a5858;
-  font-size: 16px;
+  width: 15px;
+  height: 2px;
+  margin-top: -1px;
+  background-color: #5a5858;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s ease-out;
+  transform: rotate(-90deg);
+  opacity: 1;
+  z-index: 2;
+}
+.IconPlus::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  width: 15px;
+  height: 2px;
+  margin-top: -1px;
+  background-color: #5a5858;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s ease-out;
+}
+button:active > .IconPlus::before .IconPlus::afte {
+  display: none;
+}
+.IconMinus:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 70%;
+  right: 30px;
+  width: 15px;
+  height: 2px;
+  margin-top: -1px;
+  background-color: red;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s ease-out;
 }
