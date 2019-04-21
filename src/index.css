@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "UnitedSansSemiCond-Light";
+  src: url("./assets/fonts/UnitedSansSemiCondLight/United\ Sans\ SemiCond\ Light.eot");
+  src: url("./assets/fonts/UnitedSansSemiCondLight/United\ Sans\ SemiCond\ Light.eot")
+      format("embedded-opentype"),
+    url("./assets/fonts/UnitedSansSemiCondLight/United\ Sans\ SemiCond\ Light.woff2")
+      format("woff2"),
+    url("./assets/fonts/UnitedSansSemiCondLight/United\ Sans\ SemiCond\ Light.woff")
+      format("woff"),
+    url("./assets/fonts/UnitedSansSemiCondLight/United\ Sans\ SemiCond\ Light.ttf")
+      format("truetype"),
+    url("./assets/fonts/UnitedSansSemiCondLight/United\ Sans\ SemiCond\ Light.svg")
+      format("svg");
+}
 body {
   margin: 0;
   padding: 0;

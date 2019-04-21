@@ -32,7 +32,7 @@ li {
   letter-spacing: 0;
   cursor: pointer;
   color: rgb(77, 77, 77);
-  font-family: UnitedSansSemiCond-Light;
+  font-family: "UnitedSansSemiCond-Light";
 }
 @media (min-width: 768px) {
   ul {
