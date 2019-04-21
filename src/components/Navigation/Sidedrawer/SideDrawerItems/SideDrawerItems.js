@@ -2,6 +2,9 @@ import React from "react";
 import classes from "./SideDrawerItems.module.css";
 
 const SideDrawerItems = props => {
+  const attachedClasses = props.open
+    ? [classes.IconPlus, classes.collapsed]
+    : [classes.IconPlus];
   return (
     <div className={[classes.SideDrawerItems, "card"].join(" ")}>
       <div
@@ -14,7 +17,7 @@ const SideDrawerItems = props => {
       >
         <button onClick={() => props.toggle(props.id, props.index)}>
           <span>{props.header}</span>
-          <span className={props.open ? classes.IconMinus : classes.IconPlus} />
+          <span className={attachedClasses.join(" ")} />
         </button>
       </div>
 

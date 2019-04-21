@@ -21,6 +21,7 @@
   margin: 0 auto;
 }
 button {
+  position: relative;
   border: none;
   outline: none;
   color: #fff;
@@ -39,49 +40,36 @@ button {
 button:focus {
   outline: none;
 }
-.IconPlus::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 30px;
-  width: 15px;
-  height: 2px;
-  margin-top: -1px;
-  background-color: #5a5858;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s ease-out;
-  transform: rotate(-90deg);
-  opacity: 1;
-  z-index: 2;
-}
-.IconPlus::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 30px;
-  width: 15px;
-  height: 2px;
-  margin-top: -1px;
-  background-color: #5a5858;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s ease-out;
-}
 
-.IconMinus:before {
-  content: "";
-  display: block;
+.IconPlus {
+  cursor: pointer;
+}
+.IconPlus::before,
+.IconPlus::after {
   position: absolute;
-  top: 15%;
-  right: 30px;
-  width: 15px;
+  background: #808080;
+  content: "";
+  right: 10px;
+  top: 50%;
   height: 2px;
-  margin-top: -1px;
-  background-color: #ffffff;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s ease-out;
+  width: 15px;
+  transition: all 0.5s ease-out;
+  opacity: 1;
+}
+.IconPlus:after {
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+.collapsed {
+  background: #fff !important;
+}
+.IconPlus.collapsed::after {
+  transition: all 0.5s ease-out;
+  background-color: #fff !important;
+  transform: rotate(180deg);
+}
+.IconPlus.collapsed::before {
+  opacity: 0;
+  background-color: #fff;
+  transform: rotate(180deg);
 }
