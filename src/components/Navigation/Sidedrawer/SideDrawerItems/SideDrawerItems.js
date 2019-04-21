@@ -14,7 +14,7 @@ const SideDrawerItems = props => {
       >
         <button onClick={() => props.toggle(props.id, props.index)}>
           <span>{props.header}</span>
-          <span className={classes.IconPlus} />
+          <span className={props.open ? classes.IconMinus : classes.IconPlus} />
         </button>
       </div>
 

@@ -8,8 +8,6 @@ export default class Sidedrawer extends Component {
     super(props);
 
     this.state = {
-      SideDrawerOpen: false,
-
       menuObj: [
         {
           id: 1,
@@ -35,8 +33,16 @@ export default class Sidedrawer extends Component {
           title: "customer service",
           isOpen: false,
           submenu: {
-            subTitles: ["contact us", "birthday"],
-            links: ["/", "/"]
+            subTitles: [
+              "Discounts",
+              "BirthDay Reservation",
+              " Contact Us",
+              "Find A Pizza Hut",
+              "Track Your Order",
+              "FAQs",
+              "Become A Franchisee"
+            ],
+            links: ["/", "/", "/", "/", "/", "/"]
           }
         }
       ]
@@ -49,9 +55,7 @@ export default class Sidedrawer extends Component {
     menuObjCopy[index] = Object.assign({}, menuObjCopy[index]);
     menuObjCopy[index].isOpen = !menuObjCopy[index].isOpen;
 
-    this.setState({ menuObj: menuObjCopy }, function() {
-      console.log(this.state.menuObj);
-    });
+    this.setState({ menuObj: menuObjCopy });
   };
 
   render() {
@@ -75,9 +79,14 @@ export default class Sidedrawer extends Component {
         </SideDrawerItems>
       );
     });
-
+    let sideDrawerStyle = this.props.open
+      ? { transform: "translateX(0)" }
+      : { transform: "translateX(-100%)" };
     return (
-      <div className={[classes.Sidedrawer, "accordion"].join(" ")}>
+      <div
+        className={[classes.Sidedrawer, "accordion"].join(" ")}
+        style={sideDrawerStyle}
+      >
         {sideMenu}
       </div>
     );

@@ -2,18 +2,19 @@
   font-size: 20px;
   position: relative;
   font-weight: 400;
-  display: none;
-  transition: all 0.3s ease-out;
-  display: none;
+  transition: all 0.5s ease-out;
   margin-bottom: -1px;
+  margin-left: -25px;
   padding: 0;
 }
 
 .Open {
-  transform: translate(0);
+  display: block;
+  transform: translateY(0%);
 }
 .Close {
-  transform: translateY(-300%);
+  display: none;
+  transform: translateY(200%);
 }
 ul {
   list-style: none;
@@ -23,13 +24,14 @@ ul {
 }
 li {
   text-transform: capitalize;
+  line-height: 18px;
 }
 .SubMenu ul li a {
   text-decoration: none;
   line-height: 25px;
   letter-spacing: 0;
   cursor: pointer;
-  color: #808080;
+  color: rgb(77, 77, 77);
   font-family: UnitedSansSemiCond-Light;
 }
 @media (min-width: 768px) {

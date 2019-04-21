@@ -1,0 +1,75 @@
+.HamburgerMenu {
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  margin: 15px;
+  margin-top: 10px;
+  margin-left: 0px;
+  padding: 10px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.HamburgerMenu > span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  opacity: 1;
+  left: 0;
+  border-radius: 10px;
+  color: black;
+  background-color: white;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+  -o-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+.HamburgerMenu span:nth-child(1) {
+  top: 0;
+}
+.HamburgerMenu span:nth-child(2) {
+  top: 9px;
+}
+
+.HamburgerMenu span:nth-child(3) {
+  top: 18px;
+}
+
+.HamburgerMenu.open span:nth-child(1) {
+  top: 18px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.HamburgerMenu.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.HamburgerMenu.open span:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+@media (min-width: 768px) {
+  .HamburgerMenu {
+    display: none;
+  }
+}

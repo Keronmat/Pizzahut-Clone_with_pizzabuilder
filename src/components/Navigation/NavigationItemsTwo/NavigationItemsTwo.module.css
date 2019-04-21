@@ -1,13 +1,14 @@
 .NavigationItemsTwo {
-  padding: 5px;
-  list-style: none;
-  flex-direction: row !important;
-  align-self: flex-start;
+  padding: 0px;
 }
 
 @media (min-width: 768px) {
   .NavigationItemsTwo {
     float: right !important;
+    padding: 5px;
+    list-style: none;
+    flex-direction: row !important;
+    align-self: flex-start;
   }
 }
 @media (max-width: 1230px) {

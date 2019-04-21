@@ -36,6 +36,9 @@ button {
   text-align: left;
   background-color: transparent;
 }
+button:focus {
+  outline: none;
+}
 .IconPlus::before {
   content: "";
   display: block;
@@ -46,9 +49,6 @@ button {
   height: 2px;
   margin-top: -1px;
   background-color: #5a5858;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
   -webkit-transition: all 0.3s;
   transition: all 0.3s ease-out;
   transform: rotate(-90deg);
@@ -65,25 +65,20 @@ button {
   height: 2px;
   margin-top: -1px;
   background-color: #5a5858;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
   -webkit-transition: all 0.3s;
   transition: all 0.3s ease-out;
 }
-button:active > .IconPlus::before .IconPlus::afte {
-  display: none;
-}
+
 .IconMinus:before {
   content: "";
   display: block;
   position: absolute;
-  top: 70%;
+  top: 15%;
   right: 30px;
   width: 15px;
   height: 2px;
   margin-top: -1px;
-  background-color: red;
+  background-color: #ffffff;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
