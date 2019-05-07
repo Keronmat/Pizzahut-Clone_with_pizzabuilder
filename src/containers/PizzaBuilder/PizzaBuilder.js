@@ -3,6 +3,7 @@ import Pizza from "../../components/Pizza.js/Pizza";
 import BuildControls from "../../components/Pizza.js/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Pizza.js/OrderSumarry/OrderSummary";
+import axios from "../../axios-orders";
 
 const INGREDIENT_PRICES = {
   pepperoni: 2,
@@ -37,6 +38,7 @@ export default class PizzaBuilder extends Component {
       size: "regularPan",
       panSizePrice: 5,
       currentPrice: 0,
+      totalPrice: 0,
       purchasing: false
     };
   }
@@ -93,7 +95,8 @@ export default class PizzaBuilder extends Component {
   };
 
   purchaseHandler = () => {
-    this.setState({ purchasing: true });
+    let total = this.state.panSizePrice + this.state.currentPrice;
+    this.setState({ purchasing: true, totalPrice: total });
   };
 
   purchaseCancelHandler = () => {
@@ -101,8 +104,29 @@ export default class PizzaBuilder extends Component {
   };
 
   purchaseCheckoutHandler = () => {
-    alert("checkout");
+    //alert("checkout");
+    const order = {
+      ingredients: this.state.ingredients,
+      price: this.state.totalPrice,
+      size: "regularPan",
+      size: this.state.size,
+      customer: {
+        name: "John Doe",
+        address: {
+          street: "Testsreet 1",
+          zipcode: "55555",
+          country: "St Vincent and the Grenadines"
+        },
+        email: "johndoe@test.com"
+      },
+      deliveryMethod: "pick up"
+    };
+    axios
+      .post("/orders.json", order)
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
   };
+
   render() {
     return (
       <React.Fragment>
