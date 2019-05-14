@@ -1,14 +1,14 @@
 .Modal {
   position: fixed;
   z-index: 500;
-  background-color: #4e4a49;
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
   width: 70%;
-  border: none;
-  box-shadow: 0px 1px 3px 1px #ed1c24;
+  border-top: 3px solid red;
   padding: 16px;
   left: 15vmin;
   top: 10vmin;
+  text-align: center;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }

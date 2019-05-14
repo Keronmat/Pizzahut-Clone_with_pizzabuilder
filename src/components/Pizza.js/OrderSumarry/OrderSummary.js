@@ -44,7 +44,10 @@ export default class OrderSummary extends Component {
     return (
       <React.Fragment>
         <h3>Your Order</h3>
-        <Table responsive>
+        <Table
+          responsive
+          style={{ backgroundColor: "#4e4a49", textAlign: "left" }}
+        >
           <thead className="thead-dark">
             <tr>
               <th scope="col">Item</th>
@@ -56,7 +59,9 @@ export default class OrderSummary extends Component {
             {ingredientSummary}
             <tr style={{ color: "white" }}>
               <td>Pan Size</td>
-              <td colSpan="2">${this.props.panSizePrice}</td>
+              <td colSpan="2" style={{ textAlign: "right" }}>
+                ${this.props.panSizePrice}
+              </td>
             </tr>
             <tr>
               <td
@@ -85,7 +90,7 @@ export default class OrderSummary extends Component {
                   }}
                   onClick={() => this.props.purchaseCheckout()}
                 >
-                  Checkout
+                  Add to Cart
                 </Button>
               </td>
               <td colSpan="2">
@@ -97,7 +102,7 @@ export default class OrderSummary extends Component {
                   }}
                   onClick={() => this.props.purchaseCancelled()}
                 >
-                  Continue
+                  Add More
                 </Button>
               </td>
             </tr>

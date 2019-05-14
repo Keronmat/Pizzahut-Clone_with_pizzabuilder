@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+
 import Pizza from "../../components/Pizza.js/Pizza";
 import BuildControls from "../../components/Pizza.js/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Pizza.js/OrderSumarry/OrderSummary";
+import Spinner from "../../components/UI/Spinner/Spinner";
+import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import axios from "../../axios-orders";
 
 const INGREDIENT_PRICES = {
@@ -18,29 +23,27 @@ const INGREDIENT_PRICES = {
   jalapenos: 1
 };
 
-export default class PizzaBuilder extends Component {
+class PizzaBuilder extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      ingredients: {
-        pepperoni: false,
-        sausage: false,
-        ham: false,
-        bacon: false,
-        chicken: false,
-        mushrooms: false,
-        peppers: false,
-        onions: false,
-        pineapple: false,
-        jalapenos: false
-      },
+      ingredients: null,
       size: "regularPan",
       panSizePrice: 5,
       currentPrice: 0,
       totalPrice: 0,
-      purchasing: false
+      purchasing: false,
+      loading: false,
+      error: false,
+      cart: null,
+      addedToCart: false
     };
+  }
+
+  componentDidMount() {
+    this.getIngredientsData();
+    this.getCartData();
   }
 
   addIngredientHandler = type => {
@@ -105,10 +108,10 @@ export default class PizzaBuilder extends Component {
 
   purchaseCheckoutHandler = () => {
     //alert("checkout");
-    const order = {
+    this.setState({ loading: true });
+    /*  const order = {
       ingredients: this.state.ingredients,
       price: this.state.totalPrice,
-      size: "regularPan",
       size: this.state.size,
       customer: {
         name: "John Doe",
@@ -123,39 +126,115 @@ export default class PizzaBuilder extends Component {
     };
     axios
       .post("/orders.json", order)
-      .then(response => console.log(response))
-      .catch(error => console.log(error));
+      .then(response => this.setState({ loading: false, purchasing: false }))
+      .catch(error => this.setState({ loading: false }));
+  };*/
+
+    const cart = {
+      ingredients: this.state.ingredients,
+      price: this.state.totalPrice,
+      size: this.state.size
+    };
+
+    axios
+      .post("/cart.json", cart)
+      .then(response =>
+        this.setState({ loading: false, purchasing: false, addedToCart: true })
+      )
+      .catch(error => this.setState({ loading: false }));
+
+    setTimeout(() => {
+      this.setState({ addedToCart: false });
+    }, 1000);
+  };
+
+  getIngredientsData = () => {
+    axios
+      .get("https://pizzahut-clone.firebaseio.com/ingredients.json")
+      .then(response => {
+        this.setState({ ingredients: response.data });
+      })
+      .catch(error => this.setState({ error: true }));
+  };
+  getCartData = () => {
+    axios
+      .get("https://pizzahut-clone.firebaseio.com/cart.json")
+      .then(response => {
+        this.setState({ cart: response.data });
+      })
+      .catch(error => this.setState({ error: true }));
+    console.log(this.state.cart);
   };
 
   render() {
+    let itemInCart = null;
+    if (this.state.addedToCart) {
+      itemInCart = (
+        <Modal show>
+          <FontAwesomeIcon icon={faCheck} size={"8x"} color="red" />
+        </Modal>
+      );
+    }
+
+    let orderSummary = null;
+    let pizza = this.state.error ? (
+      <p
+        style={{
+          textTransform: "capitalize",
+          textAlign: "center",
+          fontSize: "1.5em"
+        }}
+      >
+        ingredients can't be loaded at this time
+      </p>
+    ) : (
+      <Spinner />
+    );
+
+    if (this.state.ingredients) {
+      pizza = (
+        <React.Fragment>
+          <Pizza ingredients={this.state.ingredients} />
+          <BuildControls
+            ingredientAdded={this.addIngredientHandler}
+            ingredientRemoved={this.RemoveIngredientHandler}
+            ingredients={this.state.ingredients}
+            currentPrice={this.state.currentPrice}
+            purchaseHandler={this.purchaseHandler}
+            ordered={this.purchaseHandler}
+            handleSize={this.handleSize}
+            size={this.state.size}
+            handlePanSizePrice={this.handlePanSizePrice}
+          />
+        </React.Fragment>
+      );
+      orderSummary = (
+        <OrderSummary
+          ingredients={this.state.ingredients}
+          currentPrice={this.state.currentPrice}
+          ingredientRemoved={this.RemoveIngredientHandler}
+          purchaseCheckout={this.purchaseCheckoutHandler}
+          purchaseCancelled={this.purchaseCancelHandler}
+          panSizePrice={this.state.panSizePrice}
+        />
+      );
+    }
+
+    if (this.state.loading) {
+      orderSummary = <Spinner />;
+    }
     return (
       <React.Fragment>
         <Modal
           show={this.state.purchasing}
           modalClosed={this.purchaseCancelHandler}
         >
-          <OrderSummary
-            ingredients={this.state.ingredients}
-            currentPrice={this.state.currentPrice}
-            ingredientRemoved={this.RemoveIngredientHandler}
-            purchaseCheckout={this.purchaseCheckoutHandler}
-            purchaseCancelled={this.purchaseCancelHandler}
-            panSizePrice={this.state.panSizePrice}
-          />
+          {orderSummary}
         </Modal>
-        <Pizza ingredients={this.state.ingredients} />
-        <BuildControls
-          ingredientAdded={this.addIngredientHandler}
-          ingredientRemoved={this.RemoveIngredientHandler}
-          ingredients={this.state.ingredients}
-          currentPrice={this.state.currentPrice}
-          purchaseHandler={this.purchaseHandler}
-          ordered={this.purchaseHandler}
-          handleSize={this.handleSize}
-          size={this.state.size}
-          handlePanSizePrice={this.handlePanSizePrice}
-        />
+        {pizza}
+        {itemInCart}
       </React.Fragment>
     );
   }
 }
+export default withErrorHandler(PizzaBuilder, axios);
