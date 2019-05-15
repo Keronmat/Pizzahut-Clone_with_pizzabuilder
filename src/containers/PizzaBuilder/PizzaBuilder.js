@@ -36,14 +36,13 @@ class PizzaBuilder extends Component {
       purchasing: false,
       loading: false,
       error: false,
-      cart: null,
+      cart: [],
       addedToCart: false
     };
   }
 
   componentDidMount() {
     this.getIngredientsData();
-    this.getCartData();
   }
 
   addIngredientHandler = type => {
@@ -108,7 +107,7 @@ class PizzaBuilder extends Component {
 
   purchaseCheckoutHandler = () => {
     //alert("checkout");
-    this.setState({ loading: true });
+    //this.setState({ loading: true });
     /*  const order = {
       ingredients: this.state.ingredients,
       price: this.state.totalPrice,
@@ -130,22 +129,22 @@ class PizzaBuilder extends Component {
       .catch(error => this.setState({ loading: false }));
   };*/
 
-    const cart = {
+    const cartItem = {
       ingredients: this.state.ingredients,
       price: this.state.totalPrice,
       size: this.state.size
     };
 
-    axios
-      .post("/cart.json", cart)
-      .then(response =>
-        this.setState({ loading: false, purchasing: false, addedToCart: true })
-      )
-      .catch(error => this.setState({ loading: false }));
+    this.setState({
+      purchasing: false,
+      addedToCart: true,
+      cart: [...this.state.cart, cartItem]
+    });
 
     setTimeout(() => {
       this.setState({ addedToCart: false });
     }, 1000);
+    console.log(this.state.cart);
   };
 
   getIngredientsData = () => {
@@ -155,15 +154,6 @@ class PizzaBuilder extends Component {
         this.setState({ ingredients: response.data });
       })
       .catch(error => this.setState({ error: true }));
-  };
-  getCartData = () => {
-    axios
-      .get("https://pizzahut-clone.firebaseio.com/cart.json")
-      .then(response => {
-        this.setState({ cart: response.data });
-      })
-      .catch(error => this.setState({ error: true }));
-    console.log(this.state.cart);
   };
 
   render() {

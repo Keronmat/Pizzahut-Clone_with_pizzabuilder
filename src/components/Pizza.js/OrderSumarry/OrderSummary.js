@@ -43,7 +43,7 @@ export default class OrderSummary extends Component {
 
     return (
       <React.Fragment>
-        <h3>Your Order</h3>
+        <h3>Your Pizza</h3>
         <Table
           responsive
           style={{ backgroundColor: "#4e4a49", textAlign: "left" }}

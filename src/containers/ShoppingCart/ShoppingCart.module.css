@@ -1,0 +1,18 @@
+.Cart {
+  margin: 10vh 0;
+  position: relative;
+  display: inline-block;
+}
+.CartItems,
+.Coupon {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 15px 20px;
+}
+.CartItems {
+  float: left;
+}
+.Coupon {
+  float: right;
+  text-align: right;
+}

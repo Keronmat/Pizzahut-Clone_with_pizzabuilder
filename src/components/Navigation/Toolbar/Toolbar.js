@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Toolbar.module.css";
 import Logo, { LogoMobile } from "../../Logo/Logo";
-import Cart from "../Cart/Cart";
+import Cart from "../../Cart/Cart";
 import NavigationItems from "../NavigationItems/NavigationItems";
 import NavigationItemsTwo from "../NavigationItemsTwo/NavigationItemsTwo";
 import HamburgerMenu from "../Sidedrawer/HamburgerMenu/HamburgerMenu";
