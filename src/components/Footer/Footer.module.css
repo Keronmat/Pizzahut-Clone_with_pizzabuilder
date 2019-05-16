@@ -1,0 +1,79 @@
+.Footer {
+  border-top: 1px solid #827c7b;
+  margin-top: 35px;
+  padding: 5px 10px 10px;
+}
+
+.Footer .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.FooterDiv {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: capitalize;
+}
+.FooterDiv h3 {
+  color: #827c7b;
+  font-size: 18px;
+  padding-bottom: 2px;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.FooterDiv {
+  text-align: left;
+  padding: 0;
+}
+.FooterDiv ul {
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.FooterDiv ul li {
+  list-style-type: none;
+}
+.FooterDiv a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.Address {
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.Address p {
+  font-style: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  font-size: 12px;
+  color: #8d8d8c;
+  font-family: Roboto;
+}
+.Address a {
+  text-decoration: none;
+  color: #8d8d8c;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .Address {
+    border-top: 1px solid #827c7b;
+    color: #8d8d8c;
+    font-size: 11px !important;
+    padding: 3px 0 0;
+    margin: 25px 0 0;
+  }
+  .Address p {
+    font-style: normal;
+    line-height: 18px;
+    text-align: center;
+    font-size: 12px;
+  }
+}

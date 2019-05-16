@@ -15,9 +15,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: UnitedSans, tahoma "Poppins", "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: UnitedSansSemiCond-Light, tahoma, helvetica, arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),

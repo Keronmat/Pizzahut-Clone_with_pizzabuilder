@@ -161,7 +161,7 @@ class PizzaBuilder extends Component {
     if (this.state.addedToCart) {
       itemInCart = (
         <Modal show>
-          <FontAwesomeIcon icon={faCheck} size={"8x"} color="red" />
+          <FontAwesomeIcon icon={faCheck} size={"5x"} color="red" />
         </Modal>
       );
     }
