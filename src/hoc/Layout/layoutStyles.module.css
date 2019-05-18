@@ -1,3 +1,16 @@
 .Content {
-  margin: 72px auto;
+  margin: 70px auto;
+  z-index: 90;
+}
+
+@media (min-width: 768px) {
+  .Content {
+    margin: 125px auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .Content {
+    margin: 102px auto;
+  }
 }

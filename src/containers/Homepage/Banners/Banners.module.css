@@ -1,0 +1,14 @@
+.Banners {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+.Banners div {
+  padding: 0 0 3px;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .Banners {
+    padding: 0;
+  }
+}

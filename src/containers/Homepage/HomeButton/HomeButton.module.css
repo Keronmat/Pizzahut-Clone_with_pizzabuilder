@@ -1,0 +1,15 @@
+.HomeButton {
+  padding: 0 15px;
+}
+
+@media (min-width: 768px) {
+  .HomeButton {
+    padding: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .HomeButton {
+    display: none;
+  }
+}

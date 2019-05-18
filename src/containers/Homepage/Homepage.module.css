@@ -1,0 +1,9 @@
+.Home {
+  margin-top: 18vh;
+  z-index: 90;
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+}
