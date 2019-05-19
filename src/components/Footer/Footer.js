@@ -150,7 +150,7 @@ function Footer() {
           <div className="col-12">
             <p>
               © 2018 Pizza Hut, Pakistan Inc. All rights reserved. Powered by{" "}
-              <Link href="http://www.pizzahut.com.pk/" target="_blank">
+              <Link to="http://www.pizzahut.com.pk/" target="_blank">
                 Pizza Hut, Pakistan.
               </Link>
             </p>
