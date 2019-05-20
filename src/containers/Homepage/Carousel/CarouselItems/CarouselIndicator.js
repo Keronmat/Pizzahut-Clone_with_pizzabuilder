@@ -3,7 +3,7 @@ import classes from "../Carousel.module.css";
 export default function CarouselIndicator(props) {
   return (
     <li>
-      <a
+      <button
         className={
           props.index == props.activeIndex
             ? `${classes.carouselIndicator} ${classes.carouselIndicatorActive}`

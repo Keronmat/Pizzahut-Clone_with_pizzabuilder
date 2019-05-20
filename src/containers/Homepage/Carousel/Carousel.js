@@ -11,7 +11,11 @@ import slider from "../../../assets/images/Slider.jpg";
 import slider2 from "../../../assets/images/Slider2.jpg";
 import slider3 from "../../../assets/images/Slider3.jpg";
 
-const CAROUSEL_IMAGES = [slider, slider2, slider3];
+const CAROUSEL_IMAGES = [
+  { img: slider, link: "/" },
+  { img: slider2, link: "/" },
+  { img: slider3, link: "/" }
+];
 
 class Carousel extends Component {
   constructor(props) {
@@ -59,21 +63,22 @@ class Carousel extends Component {
         <div className={[classes.carousel, "col-12"].join(" ")}>
           <CarouselLeftArrow onClick={e => this.onPrevClick(e)} />
 
-          <ul className={classes.carouselSlides}>
-            {CAROUSEL_IMAGES.map((img, index) => (
+          <div className={classes.carouselSlides}>
+            {CAROUSEL_IMAGES.map((obj, index) => (
               <CarouselSlide
                 key={index}
                 index={index}
                 activeIndex={this.state.activeIndex}
-                imageSrc={img}
+                imageSrc={obj.img}
+                link={obj.link}
               />
             ))}
-          </ul>
+          </div>
 
           <CarouselRightArrow onClick={e => this.onNextClick(e)} />
 
           <ul className={classes.carouselIndicators}>
-            {CAROUSEL_IMAGES.map((img, index) => (
+            {CAROUSEL_IMAGES.map((obj, index) => (
               <CarouselIndicator
                 key={index}
                 index={index}

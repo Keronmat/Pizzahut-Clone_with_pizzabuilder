@@ -1,9 +1,11 @@
 import React from "react";
 import classes from "../Carousel.module.css";
+import { Link } from "react-router-dom";
 
 export default function CarouselSlide(props) {
   return (
-    <li
+    <Link
+      to={props.link}
       className={
         props.index == props.activeIndex
           ? `${classes.carouselSlide} ${classes.carouselSlideActive}`
@@ -12,9 +14,9 @@ export default function CarouselSlide(props) {
     >
       <img
         src={props.imageSrc}
-        className={classes.carouselSlideContent}
+        className={classes.carouselSlideImg}
         alt="slider-img"
       />
-    </li>
+    </Link>
   );
 }

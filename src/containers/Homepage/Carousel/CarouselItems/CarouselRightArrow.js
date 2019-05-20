@@ -9,7 +9,7 @@ function CarouselLeftArrow(props) {
       className={[classes.carouselArrow, classes.carouselArrowRight].join(" ")}
       onClick={props.onClick}
     >
-      <FontAwesomeIcon icon={faAngleRight} size="5x" />
+      &#10095;
     </button>
   );
 }
