@@ -5,7 +5,7 @@ function HamburgerMenu(props) {
   const attachedClasses = props.openSidedrawer
     ? [classes.HamburgerMenu, classes.open]
     : [classes.HamburgerMenu];
-  console.log(props.openSidedrawer);
+  //console.log(props.openSidedrawer);
   return (
     <div onClick={props.clicked} className={attachedClasses.join(" ")}>
       <span />

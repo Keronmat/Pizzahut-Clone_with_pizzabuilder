@@ -8,7 +8,7 @@
 }
 .carousel {
   position: relative;
-  padding: 0;
+  padding: 0 15px;
   margin: 0;
 }
 .carouselSlide {
@@ -38,7 +38,6 @@
   color: white;
   font-weight: bold;
   font-size: 55px;
-  transition: 0.6s ease;
   border: none;
   user-select: none;
   transition: opacity 0.15s cubic-bezier(0.4, 0, 1, 1);
@@ -61,7 +60,7 @@
   flex-direction: row;
   justify-content: center;
   bottom: 0;
-  left: 40%;
+  left: 45%;
   background-color: transparent;
   border: none;
   outline: none;
@@ -88,4 +87,10 @@
 .carouselIndicatorActive,
 .carouselIndicatorActive {
   background-color: white;
+}
+
+@media (min-width: 768px) {
+  .carousel {
+    padding: 0;
+  }
 }

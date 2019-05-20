@@ -17,13 +17,9 @@ export default class Banners extends Component {
   render() {
     const ban = this.state.img.map((obj, index) => {
       return (
-        <div key={index} className="col-md-6 col-sm-6 col-xs-12">
+        <div key={index} className="col-md-6 col-sm-12 col-xs-12">
           <Link to={obj.link}>
-            <img
-              src={obj.img}
-              alt="banner"
-              style={{ padding: "5px", width: "100%" }}
-            />
+            <img src={obj.img} alt="banner" />
           </Link>
         </div>
       );

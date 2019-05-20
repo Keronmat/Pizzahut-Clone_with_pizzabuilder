@@ -5,7 +5,7 @@ export default function CarouselIndicator(props) {
     <li>
       <button
         className={
-          props.index == props.activeIndex
+          props.index === props.activeIndex
             ? `${classes.carouselIndicator} ${classes.carouselIndicatorActive}`
             : `${classes.carouselIndicator}`
         }

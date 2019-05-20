@@ -1,19 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import classes from "./Button.module.css";
 
 function Button(props) {
-  const styles = {
-    backgroundColor: "#fed75f ",
-    color: "#000000",
-    fontSize: "16px",
-    display: "block",
-    textTransform: "uppercase",
-    marginTop: "10px"
-  };
   return (
-    <div className="col-md-6 col-sm-6 col-xs-6 col-6">
+    <div
+      className={[
+        classes.ButtonContainer,
+        "col-md-6 col-sm-6 col-xs-6 col-6"
+      ].join(" ")}
+    >
       <Link to={props.link}>
-        <button style={styles} className="btn btn-block">
+        <button className={[classes.Button, "btn btn-block"].join(" ")}>
           {props.children}
         </button>
       </Link>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Button, Table } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+//import { Button, Table } from "react-bootstrap";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import CartItemsTable from "../../components/Cart/CartComponents/CartItemsTable";
 import Coupon from "../../components/Cart/CartComponents/Coupon";
