@@ -1,0 +1,41 @@
+.ContactFormInput {
+  border-top: 3px solid red;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  margin: 0;
+  padding: 15px 20px;
+  font-size: 15px;
+}
+
+.ContactFormInput h3 {
+  text-align: center;
+}
+.PaymentMode {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  margin: 20px 0;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.PaymentMode > div {
+  border-top: 1px solid #454545;
+}
+.PaymentMode .col {
+  margin-top: 15px;
+}
+.ConfirmOrderButton {
+  background: rgba(0, 0, 0, 0.3);
+
+  padding: 15px 20px;
+  text-align: center;
+}
+.ConfirmOrderButton button,
+.ConfirmOrderButton button:hover {
+  background-color: #ed1c24;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 20px;
+  margin: 10px 0 0;
+  padding: 5px 15px;
+}

@@ -1,5 +1,5 @@
 .Cart {
-  margin: 10vh 0;
+  margin: 10vh 0 15px 0;
   position: relative;
   display: inline-block;
 }
@@ -15,4 +15,13 @@
 .Coupon {
   float: right;
   text-align: right;
+}
+
+.BillingForm {
+  margin: 0;
+  padding: 0;
+}
+.BillingForm input,
+.BillingForm select {
+  cursor: pointer;
 }

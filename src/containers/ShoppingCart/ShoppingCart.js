@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import axios from "../../axios-orders";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+import { Route } from "react-router-dom";
 
+import ContactForm from "../ContactForm/ContactForm";
 import CartItemsTable from "../../components/Cart/CartComponents/CartItemsTable";
 import Coupon from "../../components/Cart/CartComponents/Coupon";
 import classes from "./ShoppingCart.module.css";
 
-export default class ShoppingCart extends Component {
+class ShoppingCart extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      cart: []
+      cart: [],
+      loading: true
     };
   }
   componentDidMount() {
@@ -21,13 +23,18 @@ export default class ShoppingCart extends Component {
 
   getCartData = () => {
     axios
-      .get("https://pizzahut-clone.firebaseio.com/cartItems.json")
+      .get("/cartItems.json")
       .then(response => {
-        this.setState({ cart: response.data }, () =>
-          console.log(response.data)
+        const fetchedItems = [];
+        for (let key in response.data) {
+          fetchedItems.push({ ...response.data[key], id: key });
+        }
+
+        this.setState({ cart: fetchedItems, loading: false }, () =>
+          console.log(this.state.cart)
         );
       })
-      .catch(error => this.setState({ error: true }));
+      .catch(error => this.setState({ loading: false }));
   };
 
   checkoutCancelled = e => {
@@ -37,28 +44,41 @@ export default class ShoppingCart extends Component {
 
   checkoutContinued = e => {
     e.preventDefault();
-    this.props.history.replace("./checkout/contact-data");
+    this.props.history.replace("./shoppingCart/contact-data");
   };
 
   render() {
     return (
-      <div className={[classes.Cart, "row"].join(" ")}>
-        <div
-          className={[classes.CartItems, "col-md-8 col-sm-8 col-xs-12"].join(
-            " "
-          )}
-        >
-          <CartItemsTable
-            checkoutCancelled={this.checkoutCancelled}
-            checkoutContinued={this.checkoutContinued}
+      <React.Fragment>
+        <div className={[classes.Cart, "row"].join(" ")}>
+          <div
+            className={[classes.CartItems, "col-md-8 col-sm-8 col-xs-12"].join(
+              " "
+            )}
+          >
+            <CartItemsTable
+              checkoutCancelled={this.checkoutCancelled}
+              checkoutContinued={this.checkoutContinued}
+              cart={this.state.cart}
+            />
+          </div>
+          <div
+            className={[classes.Coupon, "col-md-3 col-sm-3 col-xs-12"].join(
+              " "
+            )}
+          >
+            <Coupon />
+          </div>
+        </div>
+        <div className={[classes.BillingForm, "row"].join(" ")}>
+          <Route
+            path={this.props.match.path + "/contact-data"}
+            render={() => <ContactForm {...this.props} />}
           />
         </div>
-        <div
-          className={[classes.Coupon, "col-md-3 col-sm-3 col-xs-12"].join(" ")}
-        >
-          <Coupon />
-        </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
+
+export default withErrorHandler(ShoppingCart, axios);

@@ -11,11 +11,11 @@ export default class CartItemsTable extends Component {
 
     if (this.props.cart) {
       tableDetail = this.props.cart.map((item, index) => {
-        // console.log(Object.keys(item.ingredients));
+        console.log(item);
         return (
           <tr
             className={classes.tableRow}
-            key={index}
+            key={item.id}
             style={{ color: "white", cursor: "pointer" }}
           >
             <td>
@@ -31,7 +31,7 @@ export default class CartItemsTable extends Component {
             <td>
               <form className={classes.cartForm}>
                 <select
-                  value={this.props.quantityValue[index]}
+                  value={this.props.quantityValue}
                   onChange={event => {
                     this.props.handleQuantityChange(event, item.id);
                     //this.props.priceToggler(item.id);
