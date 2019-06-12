@@ -19,7 +19,11 @@
   border: none;
   padding: 5px;
 }
-
+.Table td {
+  padding: 5px;
+  font-size: 15px;
+  text-align: left;
+}
 .Table .sub th {
   border-top: 1px solid #454545;
   color: gold;
@@ -28,6 +32,7 @@
   padding: 5px;
   font-weight: 500;
 }
+
 .Table tbody {
   text-align: center;
   margin: 25px;
@@ -63,4 +68,50 @@
   text-align: center;
   text-transform: uppercase;
   font-weight: 500;
+}
+.Table .sub,
+.Table .tableRow {
+  border-top: 1px solid #454545;
+}
+.Table .tableRow p {
+  margin: 0;
+  display: inline-block;
+}
+.cartForm select {
+  width: 60%;
+  height: 25px;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  padding: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* remove default arrow */
+  background-image: url("../../../assets/images/angle-down-solid.svg");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 0.5rem;
+  background-size: 0.6rem; /* add custom arrow */
+}
+.cartForm select option {
+  margin: 2px;
+  background: #fff;
+}
+.tableRow button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.tableRow ul {
+  padding: 0;
+  margin: 0;
+}
+.tableRow ul li {
+  display: inline-block;
+  margin: 2px;
 }

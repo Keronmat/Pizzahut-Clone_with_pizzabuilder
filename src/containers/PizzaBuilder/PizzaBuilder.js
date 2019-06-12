@@ -108,37 +108,19 @@ class PizzaBuilder extends Component {
   purchaseCheckoutHandler = () => {
     //alert("checkout");
     //this.setState({ loading: true });
-    /*  const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      size: this.state.size,
-      customer: {
-        name: "John Doe",
-        address: {
-          street: "Testsreet 1",
-          zipcode: "55555",
-          country: "St Vincent and the Grenadines"
-        },
-        email: "johndoe@test.com"
-      },
-      deliveryMethod: "pick up"
-    };
-    axios
-      .post("/orders.json", order)
-      .then(response => this.setState({ loading: false, purchasing: false }))
-      .catch(error => this.setState({ loading: false }));
-  };*/
-
     const cartItem = {
       ingredients: this.state.ingredients,
       price: this.state.totalPrice,
       size: this.state.size
     };
+    axios
+      .post("/cartItems.json", cartItem)
+      .then(response => this.setState({ loading: false, purchasing: false }))
+      .catch(error => this.setState({ loading: false }));
 
     this.setState({
       purchasing: false,
-      addedToCart: true,
-      cart: [...this.state.cart, cartItem]
+      addedToCart: true
     });
 
     setTimeout(() => {

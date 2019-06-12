@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import { Button, Table } from "react-bootstrap";
+import axios from "../../axios-orders";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,8 +11,24 @@ export default class ShoppingCart extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      cart: []
+    };
   }
+  componentDidMount() {
+    this.getCartData();
+  }
+
+  getCartData = () => {
+    axios
+      .get("https://pizzahut-clone.firebaseio.com/cartItems.json")
+      .then(response => {
+        this.setState({ cart: response.data }, () =>
+          console.log(response.data)
+        );
+      })
+      .catch(error => this.setState({ error: true }));
+  };
 
   checkoutCancelled = e => {
     e.preventDefault();

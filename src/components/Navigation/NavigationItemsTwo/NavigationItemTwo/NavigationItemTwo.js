@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./NavigationItemTwo.module.css";
+import { NavLink } from "react-router-dom";
 
 export default function NavigationItemTwo(props) {
   return (
@@ -8,7 +9,7 @@ export default function NavigationItemTwo(props) {
         " "
       )}
     >
-      <a href={props.link}>{props.children}</a>
+      <NavLink to={props.link}>{props.children}</NavLink>
     </li>
   );
 }
