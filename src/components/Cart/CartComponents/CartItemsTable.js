@@ -52,7 +52,7 @@ export default class CartItemsTable extends Component {
             </td>
             <td>${item.price}</td>
             <td>
-              <button onClick={() => this.props.removeCartItemHandler(index)}>
+              <button onClick={() => this.props.removeCartItemHandler(item.id)}>
                 <FontAwesomeIcon
                   icon={faTimes}
                   style={{ color: "#ED1C24", cursor: "pointer" }}

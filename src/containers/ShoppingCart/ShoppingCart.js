@@ -35,6 +35,7 @@ class ShoppingCart extends Component {
               cartDisCountPercent={this.props.cartDisCountPercent}
               cartDisCountDollars={this.props.cartDisCountDollars}
               cartTotal={this.props.cartTotal}
+              removeCartItemHandler={this.props.removeCartItemHandler}
             />
           </div>
           <div

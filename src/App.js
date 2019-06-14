@@ -14,7 +14,7 @@ class App extends Component {
 
     this.state = {
       cart: [], // cart reflects old state. need to udjust handler
-      coupons: [],
+      coupons: [], // test codes xyc123 and abcde
       couponInput: "",
       cartAmount: 0,
       loading: true,
@@ -52,15 +52,12 @@ class App extends Component {
     let discount = (cartDisCountPercent / 100) * cartSub; //find discount % of the total in the cart
     let total = cartSub + tax - discount; //add the tax to the total price and minus the discount
 
-    this.setState(
-      {
-        cartSubtotal: cartSub.toFixed(2),
-        cartTax: tax.toFixed(2),
-        cartDisCountDollars: discount.toFixed(2),
-        cartTotal: total.toFixed(2)
-      },
-      console.log(this.state.cartDisCountPercent)
-    );
+    this.setState({
+      cartSubtotal: cartSub.toFixed(2),
+      cartTax: tax.toFixed(2),
+      cartDisCountDollars: discount.toFixed(2),
+      cartTotal: total.toFixed(2)
+    });
   };
 
   getCartData = () => {
@@ -92,13 +89,10 @@ class App extends Component {
           cpItems.push({ ...response.data[key] });
         }
 
-        this.setState(
-          {
-            coupons: cpItems,
-            loading: false
-          },
-          () => console.log(this.state.coupons)
-        );
+        this.setState({
+          coupons: cpItems,
+          loading: false
+        });
       })
       .catch(error => this.setState({ loading: false }));
   };
@@ -124,6 +118,36 @@ class App extends Component {
     this.setState({ couponInput: e.target.value });
   };
 
+  removeCartItemHandler = id => {
+    const { cart, cartSubtotal, cartAmount } = this.state;
+    const updatedCart = [...cart];
+
+    const newCart = updatedCart.filter(item => item.id !== id);
+
+    const selectedItem = updatedCart.find(item => item.id === id); //use the id to find the item we are target
+    const index = updatedCart.indexOf(selectedItem); //find the index of the product
+    const item = updatedCart[index]; // use the index to get the exact product
+
+    const priceDeduction = cart[index].price;
+    const newPrice = cartSubtotal - priceDeduction;
+    const amountInCart = cartAmount > 0 ? cartAmount - 1 : 0;
+
+    this.setState(
+      {
+        cartSubtotal: newPrice.toFixed(2),
+        cart: newCart,
+        cartAmount: amountInCart
+      },
+      () => console.log(cart, cartSubtotal, id)
+    );
+    axios
+      .delete(`/cartItems/${id}.json`)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => console.log(error));
+  };
+
   render() {
     return (
       <div className="container-fixed">
@@ -143,6 +167,7 @@ class App extends Component {
                   couponHandler={this.couponHandler}
                   couponInput={this.state.couponInput}
                   handleCouponInputChange={this.handleCouponInputChange}
+                  removeCartItemHandler={this.removeCartItemHandler}
                   {...props}
                 />
               )}
