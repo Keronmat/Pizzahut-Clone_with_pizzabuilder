@@ -49,6 +49,9 @@
 .cpnForm div input {
   width: 50%;
 }
+.cpnForm div button {
+  width: 50%;
+}
 .Table input {
   border-radius: 5px;
   outline: none;

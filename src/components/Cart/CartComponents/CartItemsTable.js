@@ -11,7 +11,7 @@ export default class CartItemsTable extends Component {
 
     if (this.props.cart) {
       tableDetail = this.props.cart.map((item, index) => {
-        console.log(item);
+        //  console.log(item);
         return (
           <tr
             className={classes.tableRow}
@@ -101,7 +101,8 @@ export default class CartItemsTable extends Component {
             </tr>
             <tr className={classes.sub}>
               <th colSpan="4" scope="row">
-                Discount (0 % ) $ 0
+                Discount ({this.props.cartDisCountPercent} % ) ${" "}
+                {this.props.cartDisCountDollars}
               </th>
             </tr>
 

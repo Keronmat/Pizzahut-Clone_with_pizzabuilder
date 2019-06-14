@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./CartItems.module.css";
 
-export default function Coupon() {
+export default function Coupon(props) {
   return (
     <div className={classes.Table}>
       <table>
@@ -22,19 +22,25 @@ export default function Coupon() {
                     size="12"
                     id="coupon-code"
                     maxLength="20"
+                    value={props.couponInput}
+                    onChange={e => props.handleCouponInputChange(e)}
                   />
-                  <input
-                    type="submit"
+                  <button
+                    type="button"
                     id="submit-coupon"
-                    name="submit-coupin"
+                    name="submit-coupon"
                     value="Submit"
                     style={{
                       backgroundColor: "red",
                       paddingLeft: "15px",
                       paddingRight: "15px",
-                      color: "white"
+                      color: "white",
+                      textTransform: "capitalize"
                     }}
-                  />
+                    onClick={e => props.couponHandler(e)}
+                  >
+                    Submit
+                  </button>
                 </div>
                 <p>Terms and Conditions apply. </p>
               </form>

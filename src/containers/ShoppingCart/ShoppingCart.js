@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from "../../axios-orders";
-import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import { Route } from "react-router-dom";
 
 import ContactForm from "../ContactForm/ContactForm";
@@ -9,34 +7,6 @@ import Coupon from "../../components/Cart/CartComponents/Coupon";
 import classes from "./ShoppingCart.module.css";
 
 class ShoppingCart extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      cart: [],
-      loading: true
-    };
-  }
-  componentDidMount() {
-    this.getCartData();
-  }
-
-  getCartData = () => {
-    axios
-      .get("/cartItems.json")
-      .then(response => {
-        const fetchedItems = [];
-        for (let key in response.data) {
-          fetchedItems.push({ ...response.data[key], id: key });
-        }
-
-        this.setState({ cart: fetchedItems, loading: false }, () =>
-          console.log(this.state.cart)
-        );
-      })
-      .catch(error => this.setState({ loading: false }));
-  };
-
   checkoutCancelled = e => {
     e.preventDefault();
     this.props.history.goBack();
@@ -59,7 +29,12 @@ class ShoppingCart extends Component {
             <CartItemsTable
               checkoutCancelled={this.checkoutCancelled}
               checkoutContinued={this.checkoutContinued}
-              cart={this.state.cart}
+              cart={this.props.cart}
+              cartSubtotal={this.props.cartSubtotal}
+              cartTax={this.props.cartTax}
+              cartDisCountPercent={this.props.cartDisCountPercent}
+              cartDisCountDollars={this.props.cartDisCountDollars}
+              cartTotal={this.props.cartTotal}
             />
           </div>
           <div
@@ -67,7 +42,11 @@ class ShoppingCart extends Component {
               " "
             )}
           >
-            <Coupon />
+            <Coupon
+              couponHandler={this.props.couponHandler}
+              couponInput={this.props.couponInput}
+              handleCouponInputChange={this.props.handleCouponInputChange}
+            />
           </div>
         </div>
         <div className={[classes.BillingForm, "row"].join(" ")}>
@@ -81,4 +60,4 @@ class ShoppingCart extends Component {
   }
 }
 
-export default withErrorHandler(ShoppingCart, axios);
+export default ShoppingCart;

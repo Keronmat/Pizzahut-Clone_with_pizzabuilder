@@ -22,6 +22,7 @@ export default class Layout extends Component {
         <Toolbar
           menuToggler={this.menuToggler}
           openSidedrawer={this.state.showSideDrawer}
+          cartAmount={this.props.cartAmount}
         />
         <Sidedrawer open={this.state.showSideDrawer} />
         <main className={classes.Content}>{this.props.children}</main>

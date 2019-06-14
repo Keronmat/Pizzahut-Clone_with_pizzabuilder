@@ -36,7 +36,6 @@ class PizzaBuilder extends Component {
       purchasing: false,
       loading: false,
       error: false,
-      cart: [],
       addedToCart: false
     };
   }
@@ -118,15 +117,17 @@ class PizzaBuilder extends Component {
       .then(response => this.setState({ loading: false, purchasing: false }))
       .catch(error => this.setState({ loading: false }));
 
-    this.setState({
-      purchasing: false,
-      addedToCart: true
-    });
+    this.setState(
+      {
+        purchasing: false,
+        addedToCart: true
+      },
+      () => this.props.getCartData()
+    );
 
     setTimeout(() => {
       this.setState({ addedToCart: false });
     }, 1000);
-    console.log(this.state.cart);
   };
 
   getIngredientsData = () => {

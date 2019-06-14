@@ -25,7 +25,7 @@ export default function Toolbar(props) {
       <div
         className={[classes.CartDiv, "col-md-6 col-sm-4 col-xs-4"].join(" ")}
       >
-        <Cart />
+        <Cart cartAmount={props.cartAmount} />
       </div>
 
       <nav className="navbar navbar-default">
