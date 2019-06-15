@@ -36,6 +36,8 @@ class ShoppingCart extends Component {
               cartDisCountDollars={this.props.cartDisCountDollars}
               cartTotal={this.props.cartTotal}
               removeCartItemHandler={this.props.removeCartItemHandler}
+              handleQuantityChange={this.props.handleQuantityChange}
+              quantityValue={this.props.quantityValue}
             />
           </div>
           <div

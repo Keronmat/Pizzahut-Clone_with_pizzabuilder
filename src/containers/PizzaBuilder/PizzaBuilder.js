@@ -110,20 +110,21 @@ class PizzaBuilder extends Component {
     const cartItem = {
       ingredients: this.state.ingredients,
       price: this.state.totalPrice,
-      size: this.state.size
+      size: this.state.size,
+      quantity: 1
     };
     axios
       .post("/cartItems.json", cartItem)
-      .then(response => this.setState({ loading: false, purchasing: false }))
+      .then(response => {
+        this.setState({ loading: false, purchasing: false });
+        this.props.getCartData();
+      })
       .catch(error => this.setState({ loading: false }));
 
-    this.setState(
-      {
-        purchasing: false,
-        addedToCart: true
-      },
-      () => this.props.getCartData()
-    );
+    this.setState({
+      purchasing: false,
+      addedToCart: true
+    });
 
     setTimeout(() => {
       this.setState({ addedToCart: false });

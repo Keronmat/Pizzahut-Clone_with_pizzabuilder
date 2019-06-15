@@ -22,7 +22,9 @@ class App extends Component {
       cartTax: 0,
       cartDisCountPercent: 0,
       cartDisCountDollars: 0,
-      cartTotal: 0
+      cartTotal: 0,
+      quantityValue: [],
+      quantityPrice: []
     };
   }
   componentDidMount() {
@@ -66,16 +68,23 @@ class App extends Component {
       .get("/cartItems.json")
       .then(response => {
         const fetchedItems = []; //initiate a variable empty array
+        const priceArr = []; //create an array that stores the original price for each item added to the cart with their ID
+
         for (let key in response.data) {
           //loop through the cart
           fetchedItems.push({ ...response.data[key], id: key }); //push all items in the empty array with new id
+          priceArr.push({ id: key, price: response.data[key].price });
         }
 
-        this.setState({
-          cart: fetchedItems,
-          cartAmount: fetchedItems.length,
-          loading: false
-        });
+        this.setState(
+          {
+            cart: fetchedItems,
+            cartAmount: fetchedItems.length,
+            quantityPrice: [...this.state.quantityPrice, ...priceArr],
+            loading: false
+          },
+          () => console.log(priceArr)
+        );
       })
       .catch(error => this.setState({ loading: false }));
   };
@@ -128,7 +137,7 @@ class App extends Component {
     const index = updatedCart.indexOf(selectedItem); //find the index of the product
     const item = updatedCart[index]; // use the index to get the exact product
 
-    const priceDeduction = cart[index].price;
+    const priceDeduction = item.price;
     const newPrice = cartSubtotal - priceDeduction;
     const amountInCart = cartAmount > 0 ? cartAmount - 1 : 0;
 
@@ -146,6 +155,45 @@ class App extends Component {
         console.log(res);
       })
       .catch(error => console.log(error));
+  };
+
+  handleQuantityChange = (event, id) => {
+    const { quantityPrice, quantityValue, cart } = this.state;
+    //receive quantity value  from select form
+    const options = event.target.options;
+
+    var value = 1; //set quantity value to 1
+    for (var i = 0; i < options.length; i++) {
+      //loop through all the options
+      if (options[i].selected) {
+        // if the option is selected then give us the value
+        value = options[i].value; //set value to options value
+      }
+    }
+    let tempCart = [...cart]; //copy items in the cart
+
+    const selectedPoduct = tempCart.find(item => item.id === id); //use the id to find the item we are target
+    const index = tempCart.indexOf(selectedPoduct); //find the index of the product
+    const product = tempCart[index]; // use the index to get the exact product
+
+    let oldPrice = 0;
+    for (let i = 0; i < quantityPrice.length; i++) {
+      if (quantityPrice[i].id === product.id) {
+        oldPrice = quantityPrice[i].price;
+        console.log(oldPrice);
+      }
+    }
+
+    product.quantity = value;
+    product.price = product.quantity * oldPrice;
+
+    this.setState(
+      {
+        quantityValue: [...quantityValue],
+        cart: [...tempCart]
+      },
+      () => console.log(quantityPrice, oldPrice)
+    );
   };
 
   render() {
@@ -168,6 +216,8 @@ class App extends Component {
                   couponInput={this.state.couponInput}
                   handleCouponInputChange={this.handleCouponInputChange}
                   removeCartItemHandler={this.removeCartItemHandler}
+                  handleQuantityChange={this.handleQuantityChange}
+                  quantityValue={this.state.quantityValue}
                   {...props}
                 />
               )}
