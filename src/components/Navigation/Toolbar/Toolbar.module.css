@@ -19,7 +19,9 @@
   padding: 0;
   width: 33.33%;
 }
-
+.CartDiv a:hover {
+  text-decoration: none;
+}
 .Menu {
   display: block;
   float: left;

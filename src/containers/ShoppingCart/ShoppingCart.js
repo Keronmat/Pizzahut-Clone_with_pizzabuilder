@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 
-import ContactForm from "../ContactForm/ContactForm";
+import ContactForm from "./ContactForm/ContactForm";
 import CartItemsTable from "../../components/Cart/CartComponents/CartItemsTable";
 import Coupon from "../../components/Cart/CartComponents/Coupon";
 import classes from "./ShoppingCart.module.css";

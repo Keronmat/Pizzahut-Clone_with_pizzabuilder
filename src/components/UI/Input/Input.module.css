@@ -1,0 +1,56 @@
+.Input {
+  box-sizing: border-box;
+}
+
+.Label {
+  max-width: 100%;
+  font-size: 15px;
+  font-family: Roboto, sans-serif;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.Input .Label label:last-child {
+  display: none;
+}
+.Label .req {
+  color: #fed75f;
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  margin-left: 5px;
+  text-transform: capitalize;
+}
+
+.InputElement {
+  outline: none;
+  border: 0;
+  font: inherit;
+  margin: 0 0 5px;
+  padding: 6px;
+  display: block;
+  width: 95%;
+  box-sizing: border-box;
+  color: #444;
+  line-height: 28px;
+  font-weight: 400;
+  font-size: 12px;
+  font-family: Roboto, sans-serif;
+}
+select {
+  width: 150%;
+}
+.InputElement option {
+  color: #000;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 6px;
+  text-transform: uppercase;
+}
+
+.InputElement:focus {
+  outline: none;
+}
+
+.Invalid {
+  border: 1px solid red;
+  background-color: #fda49a;
+}

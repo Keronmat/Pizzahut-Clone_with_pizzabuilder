@@ -8,7 +8,7 @@
   -moz-box-shadow: 0 0 10px #ed1c24;
   box-shadow: 0 0 10px #ed1c24;
   margin: 30px 15px 0 0 !important;
-  padding: 5px 12px 4px 10px !important;
+  padding: 5px 9px 4px 10px !important;
   cursor: pointer;
   display: flex;
 }
@@ -18,9 +18,11 @@
 }
 .Cart a:hover {
   background-color: none;
+  text-decoration: none !important;
 }
 .Cart img {
   height: 21px;
+  margin-right: 4px;
 }
 @media (min-width: 768px) {
   .Cart {

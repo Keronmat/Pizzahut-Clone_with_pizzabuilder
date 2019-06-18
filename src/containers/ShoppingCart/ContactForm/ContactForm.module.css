@@ -23,6 +23,7 @@
 }
 .PaymentMode .col {
   margin-top: 15px;
+  width: 100%;
 }
 .ConfirmOrderButton {
   background: rgba(0, 0, 0, 0.3);
@@ -38,4 +39,9 @@
   font-size: 20px;
   margin: 10px 0 0;
   padding: 5px 15px;
+}
+.ConfirmOrderButton button:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+  color: #ed1c24;
 }

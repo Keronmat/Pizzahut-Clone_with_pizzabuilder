@@ -1,10 +1,7 @@
 .BuildControls {
   width: 99%;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
-  border-radius: 30px;
-  border-top: 5px solid #c8102e;
-  box-shadow: 0px 14px 17px -6px #c8102e;
-  color: #c8102e;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  border-top: 3px solid red;
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
@@ -12,6 +9,9 @@
   margin: 0 auto;
   padding: 10px 0;
   font-family: "Lobster Two", cursive;
+
+  color: #fff;
+  font-size: 15px;
 }
 
 .OrderButton {
@@ -38,8 +38,8 @@
   background-color: #c7c6c6;
   cursor: not-allowed;
   border: 1px solid #ccc;
-  color: #c8102e;
-  box-shadow: 2px 2px 2px #c8102e;
+  color: #ed1c24;
+  box-shadow: 2px 2px 2px #ed1c24;
 }
 
 .OrderButton:not(:disabled) {

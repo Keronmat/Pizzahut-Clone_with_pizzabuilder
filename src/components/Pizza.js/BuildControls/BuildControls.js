@@ -23,7 +23,7 @@ const BuildControls = props => {
       <div className={classes.Column1}>
         <p>
           Current Price:{" "}
-          <strong style={{ color: props.currentPrice > 1 ? "#dad735" : null }}>
+          <strong style={{ color: props.currentPrice > 1 ? "#ffd700" : null }}>
             ${props.currentPrice.toFixed(2)}
           </strong>
         </p>

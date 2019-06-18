@@ -21,11 +21,11 @@ export default class CartItemsTable extends Component {
             <td>
               <p>Pizza Builder: {item.size}</p>
               <ul>
-                {Object.keys(item.ingredients).map(ig => {
-                  if (item.ingredients[ig]) {
-                    return <li key={ig}>{ig}</li>;
-                  }
-                })}
+                {Object.keys(item.ingredients)
+                  .filter(ig => item.ingredients[ig])
+                  .map(ig => (
+                    <li key={ig}>{ig}</li>
+                  ))}
               </ul>
             </td>
             <td>
@@ -34,7 +34,6 @@ export default class CartItemsTable extends Component {
                   value={this.props.quantityValue[index]}
                   onChange={event => {
                     this.props.handleQuantityChange(event, item.id);
-                    //this.props.priceToggler(item.id);
                   }}
                 >
                   <option value="1">1</option>
@@ -50,7 +49,7 @@ export default class CartItemsTable extends Component {
                 </select>
               </form>
             </td>
-            <td>${item.price}</td>
+            <td>${item.price.toFixed(2)}</td>
             <td>
               <button onClick={() => this.props.removeCartItemHandler(item.id)}>
                 <FontAwesomeIcon
