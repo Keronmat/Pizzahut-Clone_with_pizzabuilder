@@ -67,7 +67,7 @@ class ContactForm extends Component {
           validation: {
             required: true,
             minLength: 3,
-            maxLength: 20
+            maxLength: 35
           },
           valid: false,
           touched: false

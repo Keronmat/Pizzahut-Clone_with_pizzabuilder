@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pizza Hut Clone with a pizza builder added
 
-## Available Scripts
+I was going through pizzahut websites and I thought it would be great if pizzahut gave the ability to build your own pizza or own snacks. I modeled the website to look and feel exactly like pizzahut's website https://www.pizzahut.com.pk/.
 
-In the project directory, you can run:
+### What I've Learn
 
-### `npm start`
+- How to plan and split your application into components.
+- How ensure that all components communicate with each other via props.
+- How to pass method reference to components.
+- How to debug React Application.
+- How to reach out to the web using Ajax.
+- How to use firebase.
+- How to access Servers.
+- Understanding the different=ce between Single Page Application and Multiplication and how to implement them.
+- How to validate forms in React.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Currently working on
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Adding Redux to my project
 
-### `npm test`
+### What is left to be done
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Products that are displayed in a grid for the Deals page.
+- Infinite Scrolling.
+- Authentication.
+- Testing
+- Deployment.
 
-### `npm run build`
+###### feactures
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Responsive website
+- Single Page Page
+- The user can add items to the cart.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- clone the repository-`https://github.com/Keronmat/Pizzahut-Clone_with_pizzabuilder.git`
+- Use terminal to browse to the repository - `cd Pizzahut-Clone_with_pizzabuilder`
+- Run the command - `npm install` /`yarn`
+- Start the application - `npm start` `yarn start`
 
-### `npm run eject`
+## Author
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+###### Keron Matthews
